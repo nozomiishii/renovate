@@ -1,4 +1,4 @@
-# @nozomiishii/renovate
+# Renovate
 
 Nozomi's Recommended [Renovate](https://docs.renovatebot.com/) Config.
 
