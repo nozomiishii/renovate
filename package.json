@@ -23,7 +23,7 @@
   },
   "devDependencies": {
     "@commitlint/config-conventional": "17.4.4",
-    "@nozomiishii/markdownlint-cli2-config": "0.0.0",
+    "@nozomiishii/markdownlint-cli2-config": "0.0.1",
     "@nozomiishii/prettier-config": "0.1.11"
   },
   "packageManager": "yarn@1.22.19",
