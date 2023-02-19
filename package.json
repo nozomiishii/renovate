@@ -1,0 +1,28 @@
+{
+  "name": "renovate",
+  "version": "0.0.0",
+  "description": "Reborn Renovate",
+  "keywords": [
+    "renovate",
+    "config"
+  ],
+  "homepage": "https://github.com/nozomiishii/renovate#readme",
+  "bugs": {
+    "url": "https://github.com/nozomiishii/renovate/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nozomiishii/renovate.git"
+  },
+  "license": "MIT",
+  "author": "Nozomi Ishii",
+  "main": "default.json",
+  "devDependencies": {
+    "@nozomiishii/markdownlint-cli2-config": "0.0.0",
+    "@nozomiishii/prettier-config": "0.1.11"
+  },
+  "packageManager": "yarn@1.22.19",
+  "volta": {
+    "node": "18.14.1"
+  }
+}

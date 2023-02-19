@@ -12,6 +12,10 @@ Nozomi's Recommended [Renovate](https://docs.renovatebot.com/) Config.
 ## Gist
 
 ```bash
+mkdir .github
+```
+
+```bash
 echo '{ "extends": ["github>nozomiishii/renovate"] }' > .github/renovate.json
 ```
 
