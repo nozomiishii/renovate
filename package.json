@@ -1,4 +1,5 @@
 {
+  "$schema": "https://json.schemastore.org/package.json",
   "name": "renovate",
   "version": "0.0.0",
   "description": "Reborn Renovate",
