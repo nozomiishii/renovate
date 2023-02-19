@@ -19,6 +19,10 @@ mkdir .github
 echo '{ "extends": ["github>nozomiishii/renovate"] }' > .github/renovate.json
 ```
 
+## Main
+
+[default.json](./default.json)
+
 ## Preference
 
 - `"$schema": "https://docs.renovatebot.com/renovate-schema.json"`
