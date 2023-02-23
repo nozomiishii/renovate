@@ -15,6 +15,7 @@
   "timezone": "Asia/Tokyo",
   "prConcurrentLimit": 0,
   "prHourlyLimit": 0,
+  "stabilityDays": 3,
 
   "rangeStrategy": "pin",
   "separateMultipleMajor": true,

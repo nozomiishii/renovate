@@ -37,6 +37,9 @@ echo '{ "extends": ["github>nozomiishii/renovate"] }' > .github/renovate.json
 - `"prConcurrentLimit": 0`
   - Limit系は0で設定すると無制限って意味になる
 
+- `stabilityDays`
+  - 安定猶予期間を設定。ここで指定した日数が経ってからオートマージされる
+
 - `separateMultipleMajor`
   - メジャーバージョンのPRは個別に出す
 
