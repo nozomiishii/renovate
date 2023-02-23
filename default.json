@@ -17,6 +17,7 @@
   "prHourlyLimit": 0,
   "stabilityDays": 3,
 
+  "semanticCommits": "enabled",
   "rangeStrategy": "pin",
   "separateMultipleMajor": true,
   "platformAutomerge": true,
