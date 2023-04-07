@@ -43,5 +43,8 @@
       "groupName": "textlint"
     }
   ],
-  "lockFileMaintenance": { "enabled": true }
+  "lockFileMaintenance": { "enabled": true },
+  "git-submodules": {
+    "enabled": true
+  }
 }
