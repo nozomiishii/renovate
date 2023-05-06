@@ -15,7 +15,7 @@
   "timezone": "Asia/Tokyo",
   "prConcurrentLimit": 0,
   "prHourlyLimit": 0,
-  "stabilityDays": 3,
+  "minimumReleaseAge": "3 days",
 
   "semanticCommits": "enabled",
   "rangeStrategy": "pin",
@@ -26,6 +26,11 @@
     "automerge": false
   },
   "packageRules": [
+    {
+      "matchPackagePatterns": ["nozomiishii"],
+      "groupName": "nozomiishii",
+      "minimumReleaseAge": null
+    },
     {
       "matchPackagePatterns": ["eslint"],
       "groupName": "eslint"
