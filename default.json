@@ -48,6 +48,16 @@
       "groupName": "textlint"
     }
   ],
+
+  "regexManagers": [
+    {
+      "fileMatch": ["^.github/workflows/[^\\.]+\\.ya?ml$"],
+      "matchStrings": ["PNPM_VERSION:\\s*(?<currentValue>.*?)\n"],
+      "depNameTemplate": "pnpm",
+      "datasourceTemplate": "npm"
+    }
+  ],
+
   "lockFileMaintenance": { "enabled": true },
   "git-submodules": {
     "enabled": true
