@@ -22,9 +22,9 @@
     "setup": "./scripts/setup.sh"
   },
   "devDependencies": {
-    "@commitlint/config-conventional": "17.6.1",
-    "@nozomiishii/markdownlint-cli2-config": "0.0.1",
-    "@nozomiishii/prettier-config": "0.1.17"
+    "@commitlint/config-conventional": "17.6.3",
+    "@nozomiishii/markdownlint-cli2-config": "0.0.2",
+    "@nozomiishii/prettier-config": "0.2.0"
   },
   "packageManager": "yarn@1.22.19",
   "volta": {
