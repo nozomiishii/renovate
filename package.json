@@ -26,9 +26,9 @@
     "@nozomiishii/markdownlint-cli2-config": "0.0.2",
     "@nozomiishii/prettier-config": "0.2.0"
   },
-  "packageManager": "yarn@1.22.19",
+  "packageManager": "pnpm@8.5.1",
   "volta": {
     "node": "18.16.0",
-    "yarn": "1.22.19"
+    "pnpm": "8.5.1"
   }
 }
