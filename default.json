@@ -27,6 +27,11 @@
   },
   "packageRules": [
     {
+      "matchManagers": ["npm"],
+      "matchDepTypes": ["volta"],
+      "enabled": true
+    },
+    {
       "matchDepTypes": ["peerDependencies"],
       "rangeStrategy": "widen"
     },
