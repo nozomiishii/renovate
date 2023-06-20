@@ -27,11 +27,6 @@
   },
   "packageRules": [
     {
-      "matchManagers": ["npm"],
-      "matchDepTypes": ["volta"],
-      "enabled": true
-    },
-    {
       "matchDepTypes": ["peerDependencies"],
       "rangeStrategy": "widen"
     },
@@ -62,6 +57,12 @@
     {
       "fileMatch": ["^.github/workflows/[^\\.]+\\.ya?ml$"],
       "matchStrings": ["PNPM_VERSION:\\s*(?<currentValue>.*?)\n"],
+      "depNameTemplate": "pnpm",
+      "datasourceTemplate": "npm"
+    },
+    {
+      "fileMatch": ["(^|/)package\\.json$"],
+      "matchStrings": ["\"pnpm\":\\s*\"(?<currentValue>[^\"]+)\""],
       "depNameTemplate": "pnpm",
       "datasourceTemplate": "npm"
     }
