@@ -6,25 +6,33 @@ settings:
 
 devDependencies:
   '@commitlint/config-conventional':
-    specifier: 17.6.5
-    version: 17.6.5
+    specifier: 17.6.6
+    version: 17.6.6
   '@nozomiishii/lefthook-config':
-    specifier: 0.0.1
-    version: 0.0.1
+    specifier: 0.0.2
+    version: 0.0.2
   '@nozomiishii/markdownlint-cli2-config':
     specifier: 0.0.6
     version: 0.0.6
   '@nozomiishii/prettier-config':
-    specifier: 0.2.4
-    version: 0.2.4
+    specifier: 0.2.6
+    version: 0.2.6
 
 packages:
 
-  /@commitlint/config-conventional@17.6.5:
-    resolution: {integrity: sha512-Xl9H9KLl86NZm5CYNTNF9dcz1xelE/EbvhWIWcYxG/rn3UWYWdWmmnX2q6ZduNdLFSGbOxzUpIx61j5zxbeXxg==}
+  /@commitlint/config-conventional@17.6.6:
+    resolution: {integrity: sha512-phqPz3BDhfj49FUYuuZIuDiw+7T6gNAEy7Yew1IBHqSohVUCWOK2FXMSAExzS2/9X+ET93g0Uz83KjiHDOOFag==}
     engines: {node: '>=v14'}
     dependencies:
       conventional-changelog-conventionalcommits: 5.0.0
+    dev: true
+
+  /@evilmartians/lefthook@1.4.3:
+    resolution: {integrity: sha512-m9MMFdDqFpsctUev3pk4sGzjKXpYFZH9MTVSGrnAjo8HsP0XZ/L/UgPXY75BNUtqU+hvXCmBF8mxSLU93kjhvA==}
+    cpu: [x64, arm64, ia32]
+    os: [darwin, linux, win32]
+    hasBin: true
+    requiresBuild: true
     dev: true
 
   /@nodelib/fs.scandir@2.1.5:
@@ -48,16 +56,19 @@ packages:
       fastq: 1.15.0
     dev: true
 
-  /@nozomiishii/lefthook-config@0.0.1:
-    resolution: {integrity: sha512-HJhgAjsz7JJWddDiP4rLyhHJHuYypRqegv7xdtyTpNKnkkV0ZpHsqAg4BNCyx74wcdIXnioQ5vYvIIMUa+zLBQ==}
+  /@nozomiishii/lefthook-config@0.0.2:
+    resolution: {integrity: sha512-6oFA93uePMomdfIKRBEYXDtL8lyRlGB3EvM7AGGwVcR5NZcWAFKA1NmyG+z+KOvwiKPx0EJOa8ghDK4oaeKDcA==}
+    dependencies:
+      '@evilmartians/lefthook': 1.4.3
     dev: true
 
   /@nozomiishii/markdownlint-cli2-config@0.0.6:
     resolution: {integrity: sha512-AypwFnarzh/d56hgKp+wg2DJ82kJl+AfpP2Cpl45ut9LwyeQBpqHegrLDzt7doQtojkEXIrMEHQnybFTOA6T1Q==}
     dev: true
 
-  /@nozomiishii/prettier-config@0.2.4:
-    resolution: {integrity: sha512-94Pppb9N8dfQExll9PJkTMYT46/FFjlyezWh4Hgg0sV9SjJ7B9Q7Wm8KPLguR/MDZK8aW0zOANQmZLmc2Nz3kQ==}
+  /@nozomiishii/prettier-config@0.2.6:
+    resolution: {integrity: sha512-fCamrpa7RvT6PI/uPFyIiY6IXVRhF4YMHyL8cPh6xfCqik1+DpioJbohwmddnDiaa0xIQqqA8FVlSf0nfjl/Ig==}
+    hasBin: true
     dependencies:
       prettier: 2.8.8
       prettier-plugin-packagejson: 2.4.3(prettier@2.8.8)
@@ -68,11 +79,11 @@ packages:
     engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
     dependencies:
       cross-spawn: 7.0.3
-      fast-glob: 3.2.12
+      fast-glob: 3.3.0
       is-glob: 4.0.3
       open: 9.1.0
       picocolors: 1.0.0
-      tslib: 2.5.3
+      tslib: 2.6.0
     dev: true
 
   /array-ify@1.0.0:
@@ -207,8 +218,8 @@ packages:
       strip-final-newline: 3.0.0
     dev: true
 
-  /fast-glob@3.2.12:
-    resolution: {integrity: sha512-DVj4CQIYYow0BlaelwK1pHl5n5cRSJfM60UA0zK891sVInoPri2Ekj7+e1CT3/3qxXenpI+nBBmQAcJPJgaj4w==}
+  /fast-glob@3.3.0:
+    resolution: {integrity: sha512-ChDuvbOypPuNjO8yIDf36x7BlZX1smcUMTTcyoIjycexOxd6DFsKsg21qVBzEmr3G7fUKIRy2/psii+CIUt7FA==}
     engines: {node: '>=8.6.0'}
     dependencies:
       '@nodelib/fs.stat': 2.0.5
@@ -247,12 +258,12 @@ packages:
       is-glob: 4.0.3
     dev: true
 
-  /globby@13.1.4:
-    resolution: {integrity: sha512-iui/IiiW+QrJ1X1hKH5qwlMQyv34wJAYwH1vrf8b9kBA4sNiif3gKsMHa+BrdnOpEudWjpotfa7LrTzB1ERS/g==}
+  /globby@13.2.1:
+    resolution: {integrity: sha512-DPCBxctI7dN4EeIqjW2KGqgdcUMbrhJ9AzON+PlxCtvppWhubTLD4+a0GFxiym14ZvacUydTPjLPc2DlKz7EIg==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     dependencies:
       dir-glob: 3.0.1
-      fast-glob: 3.2.12
+      fast-glob: 3.3.0
       ignore: 5.2.4
       merge2: 1.4.1
       slash: 4.0.0
@@ -512,7 +523,7 @@ packages:
       detect-indent: 7.0.1
       detect-newline: 4.0.0
       git-hooks-list: 3.1.0
-      globby: 13.1.4
+      globby: 13.2.1
       is-plain-obj: 4.1.0
       sort-object-keys: 1.1.3
     dev: true
@@ -532,7 +543,7 @@ packages:
     engines: {node: ^14.18.0 || >=16.0.0}
     dependencies:
       '@pkgr/utils': 2.4.1
-      tslib: 2.5.3
+      tslib: 2.6.0
     dev: true
 
   /titleize@3.0.0:
@@ -547,8 +558,8 @@ packages:
       is-number: 7.0.0
     dev: true
 
-  /tslib@2.5.3:
-    resolution: {integrity: sha512-mSxlJJwl3BMEQCUNnxXBU9jP4JBktcEGhURcPR6VQVlnP0FdDEsIaz0C35dXNGLyRfrATNofF0F5p2KPxQgB+w==}
+  /tslib@2.6.0:
+    resolution: {integrity: sha512-7At1WUettjcSRHXCyYtTselblcHl9PJFFVKiCAy/bY97+BPZXSQ2wbq0P9s8tK2G7dFQfNnlJnPAiArVBVBsfA==}
     dev: true
 
   /untildify@4.0.0:
