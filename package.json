@@ -17,15 +17,20 @@
   },
   "license": "MIT",
   "author": "Nozomi Ishii",
+  "type": "module",
   "main": "default.json",
   "scripts": {
+    "format": "pnpm prettier --check",
+    "format:fix": "pnpm prettier --write",
+    "prettier": "prettier . '!docs' --ignore-unknown",
+    "reset:node_modules": "find . -name 'node_modules' -type d -prune -exec rm -rf '{}' + && pnpm install",
     "setup": "./scripts/setup.sh"
   },
   "devDependencies": {
     "@commitlint/config-conventional": "17.6.6",
-    "@nozomiishii/lefthook-config": "0.0.2",
+    "@nozomiishii/lefthook-config": "0.0.10",
     "@nozomiishii/markdownlint-cli2-config": "0.0.6",
-    "@nozomiishii/prettier-config": "0.2.6"
+    "@nozomiishii/prettier-config": "0.3.2"
   },
   "packageManager": "pnpm@8.6.5",
   "volta": {
