@@ -1,6 +1,6 @@
 {
   "$schema": "https://json.schemastore.org/package.json",
-  "name": "renovate",
+  "name": "@nozomiishii/renovate",
   "version": "0.0.0",
   "description": "🦄 Reborn Renovate",
   "keywords": [
@@ -19,6 +19,7 @@
   "author": "Nozomi Ishii",
   "type": "module",
   "main": "default.json",
+  "bin": "bin/cli.sh",
   "scripts": {
     "format": "pnpm prettier --check",
     "format:fix": "pnpm prettier --write",
