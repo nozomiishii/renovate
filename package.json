@@ -38,5 +38,8 @@
   "volta": {
     "node": "18.16.1",
     "pnpm": "8.6.6"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
