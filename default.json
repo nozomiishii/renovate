@@ -27,15 +27,6 @@
   },
   "packageRules": [
     {
-      "matchDepTypes": ["peerDependencies"],
-      "rangeStrategy": "widen"
-    },
-    {
-      "matchPackagePatterns": ["nozomiishii"],
-      "groupName": "nozomiishii",
-      "minimumReleaseAge": null
-    },
-    {
       "matchPackagePatterns": ["eslint"],
       "groupName": "eslint"
     },
@@ -50,6 +41,15 @@
     {
       "matchPackagePatterns": ["textlint"],
       "groupName": "textlint"
+    },
+    {
+      "matchDepTypes": ["peerDependencies"],
+      "rangeStrategy": "widen"
+    },
+    {
+      "matchPackagePatterns": ["nozomiishii"],
+      "groupName": "nozomiishii",
+      "minimumReleaseAge": null
     }
   ],
 
