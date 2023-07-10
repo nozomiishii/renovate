@@ -2,11 +2,6 @@ name: Publish to npm
 
 on:
   workflow_dispatch:
-  push:
-    paths:
-      - 'package.json'
-    branches:
-      - main
 
 jobs:
   publish:
