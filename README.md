@@ -7,6 +7,9 @@ Nozomi's Recommended [Renovate](https://docs.renovatebot.com/) Config.
 <div align="center">
   <img src="https://media.giphy.com/media/f7b9ltJ4FrhnsKjYx2/giphy.gif" alt="Coding" width="480" />
 </div>
+<div align="right">
+  <small>via TLC Europe on GIPHY</small>
+</div>
 <br>
 
 ## Gist
