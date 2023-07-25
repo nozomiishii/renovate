@@ -47,8 +47,9 @@
       "rangeStrategy": "widen"
     },
     {
-      "matchPackagePatterns": ["nozomiishii"],
-      "groupName": "nozomiishii",
+      "description": "Rank packageRules from least to most important as Renovate allows lower rules to override higher ones. For more details, see: https://docs.renovatebot.com/configuration-options/#packagerules:~:text=Order%20your%20packageRules",
+      "matchPackagePatterns": ["@nozomiishii"],
+      "groupName": "@nozomiishii",
       "minimumReleaseAge": null
     }
   ],
