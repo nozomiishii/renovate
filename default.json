@@ -27,10 +27,6 @@
   },
   "packageRules": [
     {
-      "matchPackagePatterns": ["eslint"],
-      "groupName": "eslint"
-    },
-    {
       "matchPackagePatterns": ["prettier"],
       "groupName": "prettier"
     },
@@ -41,6 +37,10 @@
     {
       "matchPackagePatterns": ["textlint"],
       "groupName": "textlint"
+    },
+    {
+      "matchPackagePatterns": ["eslint"],
+      "groupName": "eslint"
     },
     {
       "matchDepTypes": ["peerDependencies"],
