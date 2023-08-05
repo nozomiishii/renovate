@@ -56,6 +56,12 @@
 
   "regexManagers": [
     {
+      "fileMatch": ["^\\.github/[^\\.]+\\.ya?ml$"],
+      "matchStrings": ["node-version:\\s*(?<currentValue>.*?)\n"],
+      "depNameTemplate": "node",
+      "datasourceTemplate": "node"
+    },
+    {
       "fileMatch": ["^\\.github/workflows/[^\\.]+\\.ya?ml$"],
       "matchStrings": ["PNPM_VERSION:\\s*(?<currentValue>.*?)\n"],
       "depNameTemplate": "pnpm",
