@@ -43,6 +43,10 @@
       "groupName": "eslint"
     },
     {
+      "matchPackagePatterns": ["actions/download-artifact", "actions/upload-artifact"],
+      "groupName": "actions/artifact"
+    },
+    {
       "matchDepTypes": ["peerDependencies"],
       "rangeStrategy": "widen"
     },
