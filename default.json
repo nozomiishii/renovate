@@ -55,6 +55,11 @@
       "matchPackagePatterns": ["nozomiishii"],
       "groupName": "nozomiishii",
       "minimumReleaseAge": null
+    },
+    {
+      "matchPackageNames": ["eslint-plugin-tailwindcss"],
+      "description": "https://github.com/francoismassart/eslint-plugin-tailwindcss/issues/317",
+      "allowedVersions": "3.13.1"
     }
   ],
 
