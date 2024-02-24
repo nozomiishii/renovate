@@ -31,6 +31,10 @@
       "groupName": "prettier"
     },
     {
+      "matchPackagePatterns": ["figma-export"],
+      "groupName": "figma-export"
+    },
+    {
       "matchPackagePatterns": ["storybook"],
       "groupName": "storybook"
     },
