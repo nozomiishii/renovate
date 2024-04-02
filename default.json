@@ -25,6 +25,9 @@
   "major": {
     "automerge": false
   },
+
+  "rebaseWhen": "conflicted",
+
   "packageRules": [
     {
       "matchPackagePatterns": ["prettier"],
