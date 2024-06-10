@@ -55,7 +55,7 @@
     },
     {
       "matchDepTypes": ["peerDependencies"],
-      "rangeStrategy": "widen"
+      "rangeStrategy": "bump"
     },
     {
       "description": "Rank packageRules from least to most important as Renovate allows lower rules to override higher ones. For more details, see: https://docs.renovatebot.com/configuration-options/#packagerules:~:text=Order%20your%20packageRules",
@@ -64,9 +64,9 @@
       "minimumReleaseAge": null
     },
     {
-      "matchPackageNames": ["eslint-plugin-tailwindcss"],
-      "description": "https://github.com/francoismassart/eslint-plugin-tailwindcss/issues/317",
-      "allowedVersions": "3.13.1"
+      "matchPackageNames": ["eslint"],
+      "description": "Not so many rules are supported with flat config",
+      "allowedVersions": "8.57.0"
     }
   ],
 
