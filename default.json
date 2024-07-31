@@ -67,11 +67,6 @@
       "matchPackageNames": ["eslint"],
       "description": "Not so many rules are supported with flat config",
       "allowedVersions": "8.57.0"
-    },
-    {
-      "matchPackageNames": ["three", "@types/three"],
-      "description": "there is braking changes in 0.167.0",
-      "allowedVersions": "0.166.0"
     }
   ],
 
