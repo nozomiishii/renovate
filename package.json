@@ -38,10 +38,9 @@
     "node": "20.18.0",
     "npm": "10.9.0"
   },
-  "pnpm": {
-    "executionEnv": {
-      "nodeVersion": "20.17.0"
-    }
+  "volta": {
+    "node": "20.18.0",
+    "pnpm": "9.12.2"
   },
   "publishConfig": {
     "access": "public"
