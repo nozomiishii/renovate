@@ -75,6 +75,11 @@
       "matchPackageNames": ["node"],
       "description": "Vercel does not support v22 yet",
       "allowedVersions": "20.x"
+    },
+    {
+      "matchPackageNames": ["@types/node"],
+      "description": "Vercel does not support v22 yet",
+      "allowedVersions": "20.x"
     }
   ],
 
