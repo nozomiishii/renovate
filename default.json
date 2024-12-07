@@ -70,16 +70,6 @@
       "matchPackageNames": ["@typescript-eslint/eslint-plugin", "@typescript-eslint/parser"],
       "description": "Not so many rules are supported with flat config",
       "allowedVersions": "7.18.0"
-    },
-    {
-      "matchPackageNames": ["node"],
-      "description": "Vercel does not support v22 yet",
-      "allowedVersions": "20.x"
-    },
-    {
-      "matchPackageNames": ["@types/node"],
-      "description": "Vercel does not support v22 yet",
-      "allowedVersions": "20.x"
     }
   ],
 
