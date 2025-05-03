@@ -23,7 +23,6 @@
   "scripts": {
     "format": "pnpm prettier . --check",
     "format:fix": "pnpm prettier . --write",
-    "preinstall": "corepack enable pnpm yarn npm",
     "prettier": "prettier --ignore-unknown"
   },
   "devDependencies": {
