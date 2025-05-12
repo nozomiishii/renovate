@@ -73,3 +73,36 @@ echo '{ "extends": ["github>nozomiishii/renovate"] }' > .github/renovate.json
 
 - `rangeStrategy`
   - バージョンの上げ方。"pin"にすると^や~がつかない固定バージョンになる
+
+## tips
+
+### 特定のバージョンで更新を止めたい
+
+```json
+{
+  "matchPackageNames": ["eslint"],
+  "description": "Not so many rules are supported with flat config",
+  "allowedVersions": "8.57.0"
+}
+```
+
+### renovateが未対応の場所のバージョン上げたい
+
+```json
+{
+  "regexManagers": [
+    {
+      "fileMatch": ["(^|/)package\\.json$"],
+      "matchStrings": ["nodeVersion:\\s*(?<currentValue>.*?)\n"],
+      "depNameTemplate": "node",
+      "datasourceTemplate": "node"
+    },
+    {
+      "fileMatch": ["(^|/)package\\.json$"],
+      "matchStrings": ["\"pnpm\":\\s*\"(?<currentValue>[^\"]+)\""],
+      "depNameTemplate": "pnpm",
+      "datasourceTemplate": "npm"
+    }
+  ]
+}
+```
