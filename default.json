@@ -60,6 +60,11 @@
       "matchPackagePatterns": ["nozomiishii"],
       "groupName": "nozomiishii",
       "minimumReleaseAge": null
+    },
+    {
+      "matchPackageNames": ["eslint-plugin-storybook"],
+      "description": "Upgrading to 9.0.4 causes a 'config is undefined' error.",
+      "allowedVersions": "0.12.0"
     }
   ],
 
