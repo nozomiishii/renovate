@@ -60,36 +60,6 @@
       "matchPackagePatterns": ["nozomiishii"],
       "groupName": "nozomiishii",
       "minimumReleaseAge": null
-    },
-    {
-      "matchPackageNames": ["eslint"],
-      "description": "Not so many rules are supported with flat config",
-      "allowedVersions": "8.57.0"
-    },
-    {
-      "matchPackageNames": ["@nozomiishii/eslint-config"],
-      "description": "Not so many rules are supported with flat config",
-      "allowedVersions": "0.4.5"
-    },
-    {
-      "matchPackageNames": ["@typescript-eslint/eslint-plugin", "@typescript-eslint/parser"],
-      "description": "Not so many rules are supported with flat config",
-      "allowedVersions": "7.18.0"
-    }
-  ],
-
-  "regexManagers": [
-    {
-      "fileMatch": ["(^|/)package\\.json$"],
-      "matchStrings": ["nodeVersion:\\s*(?<currentValue>.*?)\n"],
-      "depNameTemplate": "node",
-      "datasourceTemplate": "node"
-    },
-    {
-      "fileMatch": ["(^|/)package\\.json$"],
-      "matchStrings": ["\"pnpm\":\\s*\"(?<currentValue>[^\"]+)\""],
-      "depNameTemplate": "pnpm",
-      "datasourceTemplate": "npm"
     }
   ],
 
