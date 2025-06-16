@@ -76,6 +76,15 @@ echo '{ "extends": ["github>nozomiishii/renovate"] }' > .github/renovate.json
 
 ## tips
 
+### 関連するパッケージをグループ化して一緒に更新したい
+
+```json
+{
+  "matchPackagePatterns": ["eslint"],
+  "groupName": "eslint"
+}
+```
+
 ### 特定のバージョンで更新を止めたい
 
 ```json

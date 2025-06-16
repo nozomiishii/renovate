@@ -24,10 +24,6 @@
 
   "packageRules": [
     {
-      "matchPackagePatterns": ["prettier"],
-      "groupName": "prettier"
-    },
-    {
       "matchPackagePatterns": ["figma-export"],
       "groupName": "figma-export"
     },
@@ -38,10 +34,6 @@
     {
       "matchPackagePatterns": ["textlint"],
       "groupName": "textlint"
-    },
-    {
-      "matchPackagePatterns": ["eslint"],
-      "groupName": "eslint"
     },
     {
       "matchPackageNames": ["actions/download-artifact", "actions/upload-artifact"],
