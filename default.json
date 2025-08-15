@@ -22,6 +22,10 @@
 
   "rebaseWhen": "conflicted",
 
+  "nix": {
+    "enabled": true
+  },
+
   "packageRules": [
     {
       "matchPackagePatterns": ["figma-export"],
