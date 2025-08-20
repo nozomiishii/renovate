@@ -59,6 +59,17 @@
     }
   ],
 
+  "customManagers": [
+    {
+      "customType": "regex",
+      "fileMatch": ["(^|/)package\\.json$"],
+      "matchStrings": ["\"nodeVersion\":\\s*\"(?<currentValue>[^\"]+)\""],
+      "depNameTemplate": "node",
+      "datasourceTemplate": "node-version",
+      "versioningTemplate": "node"
+    }
+  ],
+
   "lockFileMaintenance": { "enabled": true },
 
   "postUpdateOptions": ["pnpmDedupe", "npmDedupe"],

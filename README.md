@@ -99,18 +99,14 @@ echo '{ "extends": ["github>nozomiishii/renovate"] }' > .github/renovate.json
 
 ```json
 {
-  "regexManagers": [
+  "customManagers": [
     {
+      "customType": "regex",
       "fileMatch": ["(^|/)package\\.json$"],
-      "matchStrings": ["nodeVersion:\\s*(?<currentValue>.*?)\n"],
+      "matchStrings": ["\"nodeVersion\":\\s*\"(?<currentValue>[^\"]+)\""],
       "depNameTemplate": "node",
-      "datasourceTemplate": "node"
-    },
-    {
-      "fileMatch": ["(^|/)package\\.json$"],
-      "matchStrings": ["\"pnpm\":\\s*\"(?<currentValue>[^\"]+)\""],
-      "depNameTemplate": "pnpm",
-      "datasourceTemplate": "npm"
+      "datasourceTemplate": "node-version",
+      "versioningTemplate": "node"
     }
   ]
 }
