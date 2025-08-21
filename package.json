@@ -42,9 +42,6 @@
     "access": "public"
   },
   "pnpm": {
-    "executionEnv": {
-      "nodeVersion": "22.18.0"
-    },
     "ignoredBuiltDependencies": [
       "better-sqlite3",
       "core-js-pure",
