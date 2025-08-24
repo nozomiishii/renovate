@@ -80,8 +80,8 @@ echo '{ "extends": ["github>nozomiishii/renovate"] }' > .github/renovate.json
 
 ```json
 {
-  "matchPackagePatterns": ["eslint"],
-  "groupName": "eslint"
+  "groupName": "storybook",
+  "matchPackageNames": ["/storybook/"]
 }
 ```
 

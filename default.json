@@ -29,15 +29,15 @@
   "packageRules": [
     {
       "groupName": "figma-export",
-      "matchPackageNames": ["figma-export"]
+      "matchPackageNames": ["/figma-export/"]
     },
     {
       "groupName": "storybook",
-      "matchPackageNames": ["storybook"]
+      "matchPackageNames": ["/storybook/"]
     },
     {
       "groupName": "textlint",
-      "matchPackageNames": ["textlint"]
+      "matchPackageNames": ["/textlint/"]
     },
     {
       "matchPackageNames": ["actions/download-artifact", "actions/upload-artifact"],
