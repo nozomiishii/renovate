@@ -55,7 +55,7 @@
       "description": "Rank packageRules from least to most important as Renovate allows lower rules to override higher ones. For more details, see: https://docs.renovatebot.com/configuration-options/#packagerules:~:text=Order%20your%20packageRules",
       "groupName": "nozomiishii",
       "minimumReleaseAge": null,
-      "matchPackageNames": ["nozomiishii"]
+      "matchPackageNames": ["/nozomiishii/"]
     }
   ],
 
