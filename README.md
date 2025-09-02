@@ -48,27 +48,21 @@ echo '{ "extends": ["github>nozomiishii/renovate"] }' > .github/renovate.json
 ## Preference
 
 - `"$schema": "https://docs.renovatebot.com/renovate-schema.json"`
-
   - 補完出してくれる
 
 - `extends`
-
   - デフォルトでついてくる`config:base`の必要部分を抽出
 
 - `labels`
-
   - 自動で作られるPRにラベルがつく
 
 - `"prConcurrentLimit": 0`
-
   - Limit系は0で設定すると無制限って意味になる
 
 - `stabilityDays`
-
   - 安定猶予期間を設定。ここで指定した日数が経ってからオートマージされる
 
 - `separateMultipleMajor`
-
   - メジャーバージョンのPRは個別に出す
 
 - `rangeStrategy`
