@@ -24,8 +24,8 @@ importers:
         specifier: 0.6.3
         version: 0.6.3
       renovate:
-        specifier: 41.91.0
-        version: 41.91.0(encoding@0.1.13)(typanion@3.14.0)
+        specifier: 41.91.1
+        version: 41.91.1(encoding@0.1.13)(typanion@3.14.0)
 
 packages:
 
@@ -2626,9 +2626,9 @@ packages:
     resolution: {integrity: sha512-mxLDbbGIBEXTJL0zEx8JIylaj3xQ7Z/7eEVjcF9fJX4DBiH9oqe+oahYnlKKxm0Ci9TlWTyhSHgygxMxjIB2jw==}
     engines: {node: '>=18'}
 
-  p-throttle@7.0.0:
-    resolution: {integrity: sha512-aio0v+S0QVkH1O+9x4dHtD4dgCExACcL+3EtNaGqC01GBudS9ijMuUsmN8OVScyV4OOp0jqdLShZFuSlbL/AsA==}
-    engines: {node: '>=18'}
+  p-throttle@8.0.0:
+    resolution: {integrity: sha512-kvpi14SZClZqNTLevyhCNQano1LH4clozDZoOdxnxyvEl17kjEKxkgD6to7mQMcWE4fMKAwbH0rLqm6Gjj7b2Q==}
+    engines: {node: '>=20'}
 
   p-timeout@6.1.4:
     resolution: {integrity: sha512-MyIV3ZA/PmyBN/ud8vV9XzwTrNtR4jFrObymZYnZqMmW0zA8Z17vnT0rBgFE/TlohB+YCHqXMgZzb3Csp49vqg==}
@@ -2837,8 +2837,8 @@ packages:
   remark@15.0.1:
     resolution: {integrity: sha512-Eht5w30ruCXgFmxVUSlNWQ9iiimq07URKeFS3hNc8cUWy1llX4KDWfyEDZRycMc+znsN9Ux5/tJ/BFdgdOwA3A==}
 
-  renovate@41.91.0:
-    resolution: {integrity: sha512-s11qeaNWGRxBTucExxTSRBIy4j7fdxFKWLT2GFdOsGLerX8a+g5ni78bG0cu4Q0eKS/u/IZjKvdCksy76/0FpA==}
+  renovate@41.91.1:
+    resolution: {integrity: sha512-EGaRZkiP48l4he2HZSmiDHJYOZMeva/jj1+WUJpLBcCrogY1vHdVsx/2g4EP2jl0M5LA/urxkXebPvPJS+DXvw==}
     engines: {node: ^22.13.0, pnpm: ^10.0.0}
     hasBin: true
 
@@ -7113,7 +7113,7 @@ snapshots:
       eventemitter3: 5.0.1
       p-timeout: 6.1.4
 
-  p-throttle@7.0.0: {}
+  p-throttle@8.0.0: {}
 
   p-timeout@6.1.4: {}
 
@@ -7381,7 +7381,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  renovate@41.91.0(encoding@0.1.13)(typanion@3.14.0):
+  renovate@41.91.1(encoding@0.1.13)(typanion@3.14.0):
     dependencies:
       '@aws-sdk/client-codecommit': 3.858.0
       '@aws-sdk/client-ec2': 3.858.0
@@ -7473,7 +7473,7 @@ snapshots:
       p-all: 5.0.0
       p-map: 7.0.3
       p-queue: 8.1.0
-      p-throttle: 7.0.0
+      p-throttle: 8.0.0
       parse-link-header: 2.0.0
       prettier: 3.6.2
       protobufjs: 7.5.4
