@@ -56,6 +56,11 @@
       "groupName": "nozomiishii",
       "minimumReleaseAge": null,
       "matchPackageNames": ["/nozomiishii/"]
+    },
+    {
+      "description": "Limit renovate package updates to a weekly schedule",
+      "matchPackageNames": ["renovate"],
+      "schedule": ["before 9am on Monday"]
     }
   ],
 
