@@ -34,7 +34,7 @@
     "@nozomiishii/prettier-config": "0.6.5",
     "renovate": "41.100.0"
   },
-  "packageManager": "pnpm@10.16.0",
+  "packageManager": "pnpm@10.16.1",
   "engines": {
     "node": "22.19.0"
   },
