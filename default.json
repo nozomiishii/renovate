@@ -48,7 +48,7 @@
       "rangeStrategy": "bump"
     },
     {
-      "matchDepTypes": ["packageManager"],
+      "matchDepTypes": ["packageManager", "github-actions"],
       "pinDigests": true
     },
     {
