@@ -89,6 +89,14 @@ echo '{ "extends": ["github>nozomiishii/renovate"] }' > .github/renovate.json
 }
 ```
 
+```json
+{
+  "matchPackageNames": ["node","@types/node"],
+  "description": "Vercel does not support v22 yet https://vercel.com/docs/functions/runtimes/node-js/node-js-versions",
+  "allowedVersions": "22.x"
+}
+```
+
 ### renovateが未対応の場所のバージョン上げたい
 
 ```json

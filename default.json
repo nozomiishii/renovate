@@ -61,6 +61,11 @@
       "description": "Limit renovate package updates to a weekly schedule",
       "matchPackageNames": ["renovate"],
       "schedule": ["before 9am on Monday"]
+    },
+    {
+      "matchPackageNames": ["node","@types/node"],
+      "description": "Vercel does not support v22 yet https://vercel.com/docs/functions/runtimes/node-js/node-js-versions",
+      "allowedVersions": "22.x"
     }
   ],
 
