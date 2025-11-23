@@ -24,8 +24,8 @@ importers:
         specifier: 0.6.5
         version: 0.6.5
       renovate:
-        specifier: 42.11.0
-        version: 42.11.0(encoding@0.1.13)(typanion@3.14.0)
+        specifier: 42.18.0
+        version: 42.18.0(encoding@0.1.13)(typanion@3.14.0)
 
 packages:
 
@@ -433,6 +433,12 @@ packages:
     peerDependencies:
       '@opentelemetry/api': ^1.3.0
 
+  '@opentelemetry/instrumentation-redis@0.57.0':
+    resolution: {integrity: sha512-bCxTHQFXzrU3eU1LZnOZQ3s5LURxQPDlU3/upBzlWY77qOI1GZuGofazj3jtzjctMJeBEJhNwIFEgRPBX1kp/Q==}
+    engines: {node: ^18.19.0 || >=20.6.0}
+    peerDependencies:
+      '@opentelemetry/api': ^1.3.0
+
   '@opentelemetry/instrumentation@0.208.0':
     resolution: {integrity: sha512-Eju0L4qWcQS+oXxi6pgh7zvE2byogAkcsVv0OjHF/97iOz1N/aKE6etSGowYkie+YA1uo6DNwdSxaaNnLvcRlA==}
     engines: {node: ^18.19.0 || >=20.6.0}
@@ -450,6 +456,10 @@ packages:
     engines: {node: ^18.19.0 || >=20.6.0}
     peerDependencies:
       '@opentelemetry/api': ^1.3.0
+
+  '@opentelemetry/redis-common@0.38.2':
+    resolution: {integrity: sha512-1BCcU93iwSRZvDAgwUxC/DV4T/406SkMfxGqu5ojc3AvNI+I9GhV7v0J1HljsczuuhcnFLYqD5VmwVXfCGHzxA==}
+    engines: {node: ^18.19.0 || >=20.6.0}
 
   '@opentelemetry/resource-detector-aws@2.8.0':
     resolution: {integrity: sha512-L8K5L3bsDKboX7sDofZyRonyK8dfS+CF7ho8YbZ6OrH+d5uyRBsrjuokPzcju1jP2ZzgtpYzhLwzi9zPXyRLlA==}
@@ -641,12 +651,12 @@ packages:
   '@renovatebot/detect-tools@1.2.4':
     resolution: {integrity: sha512-qKkRWDmwfgPN5vrD6QzMa6UNqb06VXaZL1hxxLFsOauiSTAxz/TVKPhb/hFyf27yu35JyXIN40PiNQR+bidKbQ==}
 
-  '@renovatebot/osv-offline-db@1.7.10':
-    resolution: {integrity: sha512-WNIdeWc3zAznuof45d6Y8xG2w5yEjcMpEz407xZlKGRenZ8hc4oLRcoogZIJHGGrOAvhj2OdX7pRElm20nU/Aw==}
+  '@renovatebot/osv-offline-db@1.8.0':
+    resolution: {integrity: sha512-Ozy38+m/3BtO6hLZ1eHGkOsrGCaIl46VrZ0khFr73wP2pErJLeXpiP4CWF64hniA6nS6pDeoy/2XCyxVHOBxUQ==}
     engines: {node: '>=18.12.0'}
 
-  '@renovatebot/osv-offline@1.7.10':
-    resolution: {integrity: sha512-wG9qxVQg2aDi/Qg3ROsH+naD27facu+ljHkU9eNRANfHXeV4PcdjghP9cGXLl2CbkT8OtEphOmnMashVMgM8xQ==}
+  '@renovatebot/osv-offline@1.8.0':
+    resolution: {integrity: sha512-923TCQh5xOHAFObjLQDArgV8+hHY+WhXXtl4h1LA3x6ePEhW7W5YbIvXQo+/osCVmDZnvareBauRnxHVTbAomg==}
     engines: {node: '>=18.12.0'}
 
   '@renovatebot/pep440@4.2.1':
@@ -698,6 +708,7 @@ packages:
   '@smithy/core@3.18.4':
     resolution: {integrity: sha512-o5tMqPZILBvvROfC8vC+dSVnWJl9a0u9ax1i1+Bq8515eYjUJqqk5XjjEsDLoeL5dSqGSh6WGdVx1eJ1E/Nwhw==}
     engines: {node: '>=18.0.0'}
+    deprecated: Please upgrade your lockfile to use the latest 3.x version of @smithy/core for various fixes, see https://github.com/smithy-lang/smithy-typescript/blob/main/packages/core/CHANGELOG.md
 
   '@smithy/credential-provider-imds@4.2.5':
     resolution: {integrity: sha512-BZwotjoZWn9+36nimwm/OLIcVe+KYRwzMjfhd4QT7QxPm9WY0HiOV8t/Wlh+HVUif0SBVV7ksq8//hPaBC/okQ==}
@@ -990,8 +1001,8 @@ packages:
   '@types/yauzl@2.10.3':
     resolution: {integrity: sha512-oJoftv0LSuaDZE3Le4DbKX+KS9G36NzOeSap90UIK0yMA/NhKJhqlSGtNDORNRaIbQfzjXDrQa0ytJ6mNRGz/Q==}
 
-  '@yarnpkg/core@4.4.4':
-    resolution: {integrity: sha512-0bcUFx4wzq0szvInY0PkzqjsAlM69lgzOsEbltbiyE6q/h0hRb1oOHWSBvq7rUGA+Ob5vuyhoDYWyyXY/1W4VQ==}
+  '@yarnpkg/core@4.5.0':
+    resolution: {integrity: sha512-jZnEYfP05k3KpBIWlNkPEuJ3E0QLnYTNALQOH+7x8LAQyzhnN9yuLZx8Ze80Y7mlU1Hnv5wUGtzzUFn1wyBAlQ==}
     engines: {node: '>=18.12.0'}
 
   '@yarnpkg/fslib@3.1.4':
@@ -1724,8 +1735,8 @@ packages:
     resolution: {integrity: sha512-7Bv8RF0k6xjo7d4A/PxYLbUCfb6c+Vpd2/mB2yRDlew7Jb5hEXiCD9ibfO7wpk8i4sevK6DFny9h7EYbM3/sHg==}
     hasBin: true
 
-  glob@11.0.3:
-    resolution: {integrity: sha512-2Nim7dha1KVkaiF4q6Dj+ngPPMdfvLJEOpZk/jKiUAkqKebpGAWQXAq9z1xu9HKu5lWfqw/FASuccEjyznjPaA==}
+  glob@11.1.0:
+    resolution: {integrity: sha512-vuNwKSaKiqm7g0THUBu2x7ckSs3XJLXE+2ssL7/MfTGPLLcrJQ/4Uq1CjPTtO5cCIiRxqvN6Twy1qOwhL0Xjcw==}
     engines: {node: 20 || >=22}
     hasBin: true
 
@@ -2587,16 +2598,16 @@ packages:
     resolution: {integrity: sha512-T8BatKGY+k5rU+Q/GTYgrEf2r4xRMevAN5mtXc2aPc4rS1j3s+vWTaO2Wag94neXuCAUAs8cxBL9EeB5EA6diw==}
     engines: {node: '>=16'}
 
-  p-map@7.0.3:
-    resolution: {integrity: sha512-VkndIv2fIB99swvQoA65bm+fsmt6UNdGeIB0oxBs+WhAhdh08QA04JXpI7rbB9r08/nkbysKoya9rtDERYOYMA==}
+  p-map@7.0.4:
+    resolution: {integrity: sha512-tkAQEw8ysMzmkhgw8k+1U/iPhWNhykKnSk4Rd5zLoPJCuJaGRPo6YposrZgaxHKzDHdDWWZvE/Sk7hsL2X/CpQ==}
     engines: {node: '>=18'}
 
   p-queue@9.0.0:
     resolution: {integrity: sha512-KO1RyxstL9g1mK76530TExamZC/S2Glm080Nx8PE5sTd7nlduDQsAfEl4uXX+qZjLiwvDauvzXavufy3+rJ9zQ==}
     engines: {node: '>=20'}
 
-  p-throttle@8.0.0:
-    resolution: {integrity: sha512-kvpi14SZClZqNTLevyhCNQano1LH4clozDZoOdxnxyvEl17kjEKxkgD6to7mQMcWE4fMKAwbH0rLqm6Gjj7b2Q==}
+  p-throttle@8.1.0:
+    resolution: {integrity: sha512-c1wmXavsHZIC4g1OLhOsafK6jZSAeMo0Ap3yivj59PUcCkpacy5YgWdgIp/dB4vp1JZrfBSsPCR0YuADB+ENLQ==}
     engines: {node: '>=20'}
 
   p-timeout@7.0.1:
@@ -2746,8 +2757,8 @@ packages:
     resolution: {integrity: sha512-y3bGgqKj3QBdxLbLkomlohkvsA8gdAiUQlSBJnBhfn+BPxg4bc62d8TcBW15wavDfgexCgccckhcZvywyQYPOw==}
     hasBin: true
 
-  re2@1.22.1:
-    resolution: {integrity: sha512-E4J0EtgyNLdIr0wTg0dQPefuiqNY29KaLacytiUAYYRzxCG+zOkWoUygt1rI+TA1LrhN49/njrfSO1DHtVC5Vw==}
+  re2@1.22.3:
+    resolution: {integrity: sha512-002aE82U91DiaUA16U6vbiJusvPXn1OWiQukOxJkVUTXbzrSuQbFNHYKcGw8QK/uifRCfjl2Hd/vXYDanKkmaQ==}
 
   read-pkg-up@7.0.1:
     resolution: {integrity: sha512-zK0TB7Xd6JpCLmlLmufqykGE+/TlOePD6qKClNW7hHDKFh/J7/7gCWGR7joEQEW1bKq3a3yUZSObOoWLFQ4ohg==}
@@ -2791,8 +2802,8 @@ packages:
   remark@15.0.1:
     resolution: {integrity: sha512-Eht5w30ruCXgFmxVUSlNWQ9iiimq07URKeFS3hNc8cUWy1llX4KDWfyEDZRycMc+znsN9Ux5/tJ/BFdgdOwA3A==}
 
-  renovate@42.11.0:
-    resolution: {integrity: sha512-xD21sSS8tG6V+vlq9QkecthyFCSB1aAKNM4qXhN5zOTnNrNw9PVnfkw36tyqvOtvkerx7ENPvSb5lZeFlUmbxw==}
+  renovate@42.18.0:
+    resolution: {integrity: sha512-IJx0p5X/kW//QrXL9ZuYSPwgcobZdd6F7PF0JlMM8TGgbOUw1SxKaAqfFsNDyBZRdaMU13HopjFVgKRcn6cUPg==}
     engines: {node: ^22.13.0 || ^24.11.0, pnpm: ^10.0.0}
     hasBin: true
 
@@ -4437,6 +4448,15 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
+  '@opentelemetry/instrumentation-redis@0.57.0(@opentelemetry/api@1.9.0)':
+    dependencies:
+      '@opentelemetry/api': 1.9.0
+      '@opentelemetry/instrumentation': 0.208.0(@opentelemetry/api@1.9.0)
+      '@opentelemetry/redis-common': 0.38.2
+      '@opentelemetry/semantic-conventions': 1.38.0
+    transitivePeerDependencies:
+      - supports-color
+
   '@opentelemetry/instrumentation@0.208.0(@opentelemetry/api@1.9.0)':
     dependencies:
       '@opentelemetry/api': 1.9.0
@@ -4462,6 +4482,8 @@ snapshots:
       '@opentelemetry/sdk-metrics': 2.2.0(@opentelemetry/api@1.9.0)
       '@opentelemetry/sdk-trace-base': 2.2.0(@opentelemetry/api@1.9.0)
       protobufjs: 7.5.4
+
+  '@opentelemetry/redis-common@0.38.2': {}
 
   '@opentelemetry/resource-detector-aws@2.8.0(@opentelemetry/api@1.9.0)':
     dependencies:
@@ -4654,17 +4676,20 @@ snapshots:
       upath: 2.0.1
       zod: 3.25.76
 
-  '@renovatebot/osv-offline-db@1.7.10':
+  '@renovatebot/osv-offline-db@1.8.0':
     dependencies:
       '@seald-io/nedb': 4.1.2
 
-  '@renovatebot/osv-offline@1.7.10':
+  '@renovatebot/osv-offline@1.8.0':
     dependencies:
-      '@renovatebot/osv-offline-db': 1.7.10
+      '@renovatebot/osv-offline-db': 1.8.0
       adm-zip: 0.5.16
+      debug: 4.4.3
       fs-extra: 11.3.2
       got: 11.8.6
       luxon: 3.7.2
+    transitivePeerDependencies:
+      - supports-color
 
   '@renovatebot/pep440@4.2.1': {}
 
@@ -5131,7 +5156,7 @@ snapshots:
       '@types/node': 24.10.1
     optional: true
 
-  '@yarnpkg/core@4.4.4(typanion@3.14.0)':
+  '@yarnpkg/core@4.5.0(typanion@3.14.0)':
     dependencies:
       '@arcanis/slice-ansi': 1.1.1
       '@types/semver': 7.7.1
@@ -5339,7 +5364,7 @@ snapshots:
       minipass-collect: 2.0.1
       minipass-flush: 1.0.5
       minipass-pipeline: 1.2.4
-      p-map: 7.0.3
+      p-map: 7.0.4
       ssri: 12.0.0
       tar: 7.5.2
       unique-filename: 4.0.0
@@ -5349,13 +5374,13 @@ snapshots:
     dependencies:
       '@npmcli/fs': 4.0.0
       fs-minipass: 3.0.3
-      glob: 11.0.3
+      glob: 11.1.0
       lru-cache: 11.2.2
       minipass: 7.1.2
       minipass-collect: 2.0.1
       minipass-flush: 1.0.5
       minipass-pipeline: 1.2.4
-      p-map: 7.0.3
+      p-map: 7.0.4
       ssri: 12.0.0
       unique-filename: 4.0.0
 
@@ -5920,7 +5945,7 @@ snapshots:
       package-json-from-dist: 1.0.1
       path-scurry: 1.11.1
 
-  glob@11.0.3:
+  glob@11.1.0:
     dependencies:
       foreground-child: 3.3.1
       jackspeak: 4.1.1
@@ -7001,14 +7026,14 @@ snapshots:
 
   p-map@6.0.0: {}
 
-  p-map@7.0.3: {}
+  p-map@7.0.4: {}
 
   p-queue@9.0.0:
     dependencies:
       eventemitter3: 5.0.1
       p-timeout: 7.0.1
 
-  p-throttle@8.0.0: {}
+  p-throttle@8.1.0: {}
 
   p-timeout@7.0.1: {}
 
@@ -7163,7 +7188,7 @@ snapshots:
       strip-json-comments: 2.0.1
     optional: true
 
-  re2@1.22.1:
+  re2@1.22.3:
     dependencies:
       install-artifact-from-github: 1.4.0
       nan: 2.23.1
@@ -7263,7 +7288,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  renovate@42.11.0(encoding@0.1.13)(typanion@3.14.0):
+  renovate@42.18.0(encoding@0.1.13)(typanion@3.14.0):
     dependencies:
       '@aws-sdk/client-codecommit': 3.922.0
       '@aws-sdk/client-ec2': 3.922.0
@@ -7281,6 +7306,7 @@ snapshots:
       '@opentelemetry/instrumentation': 0.208.0(@opentelemetry/api@1.9.0)
       '@opentelemetry/instrumentation-bunyan': 0.54.0(@opentelemetry/api@1.9.0)
       '@opentelemetry/instrumentation-http': 0.208.0(@opentelemetry/api@1.9.0)
+      '@opentelemetry/instrumentation-redis': 0.57.0(@opentelemetry/api@1.9.0)
       '@opentelemetry/resource-detector-aws': 2.8.0(@opentelemetry/api@1.9.0)
       '@opentelemetry/resource-detector-azure': 0.16.0(@opentelemetry/api@1.9.0)
       '@opentelemetry/resource-detector-gcp': 0.43.0(@opentelemetry/api@1.9.0)(encoding@0.1.13)
@@ -7292,12 +7318,12 @@ snapshots:
       '@pnpm/parse-overrides': 1001.0.3
       '@qnighy/marshal': 0.1.3
       '@renovatebot/detect-tools': 1.2.4
-      '@renovatebot/osv-offline': 1.7.10
+      '@renovatebot/osv-offline': 1.8.0
       '@renovatebot/pep440': 4.2.1
       '@renovatebot/pgp': 1.1.1
       '@renovatebot/ruby-semver': 4.1.2
       '@sindresorhus/is': 7.1.1
-      '@yarnpkg/core': 4.4.4(typanion@3.14.0)
+      '@yarnpkg/core': 4.5.0(typanion@3.14.0)
       '@yarnpkg/parsers': 3.0.3
       ae-cvss-calculator: 1.0.9
       agentkeepalive: 4.6.0
@@ -7329,7 +7355,7 @@ snapshots:
       fs-extra: 11.3.2
       git-url-parse: 16.1.0
       github-url-from-git: 1.5.0
-      glob: 11.0.3
+      glob: 11.1.0
       global-agent: 3.0.0
       good-enough-parser: 1.1.23
       google-auth-library: 10.5.0
@@ -7354,9 +7380,9 @@ snapshots:
       neotraverse: 0.6.18
       node-html-parser: 7.0.1
       p-all: 5.0.1
-      p-map: 7.0.3
+      p-map: 7.0.4
       p-queue: 9.0.0
-      p-throttle: 8.0.0
+      p-throttle: 8.1.0
       parse-link-header: 2.0.0
       prettier: 3.6.2
       protobufjs: 7.5.4
@@ -7386,7 +7412,7 @@ snapshots:
     optionalDependencies:
       better-sqlite3: 12.4.1
       openpgp: 6.2.2
-      re2: 1.22.1
+      re2: 1.22.3
     transitivePeerDependencies:
       - aws-crt
       - encoding
