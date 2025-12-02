@@ -11,3 +11,9 @@
 
 extends:
   - ./node_modules/@nozomiishii/lefthook-config/index.yaml
+
+pre-commit:
+  commands:
+    validate-renovate:
+      glob: 'default.json'
+      run: pnpm validate

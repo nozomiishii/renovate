@@ -79,7 +79,7 @@
   "customManagers": [
     {
       "customType": "regex",
-      "fileMatch": ["^pnpm-workspace\\.ya?ml$"],
+      "managerFilePatterns": ["/^pnpm-workspace\\.ya?ml$/"],
       "matchStrings": ["useNodeVersion:\\s*(?<currentValue>[\\d.]+)"],
       "datasourceTemplate": "node-version",
       "depNameTemplate": "node",
