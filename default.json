@@ -19,6 +19,12 @@
     "automerge": false
   },
 
+  "vulnerabilityAlerts": {
+    "enabled": true
+  },
+
+  "osvVulnerabilityAlerts": true,
+
   "rebaseWhen": "conflicted",
 
   "nix": {
