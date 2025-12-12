@@ -30,7 +30,7 @@
     "@nozomiishii/commitlint-config": "0.0.8",
     "@nozomiishii/lefthook-config": "0.3.0",
     "@nozomiishii/markdownlint-cli2-config": "0.3.4",
-    "@nozomiishii/prettier-config": "0.6.6",
+    "@nozomiishii/prettier-config": "0.7.0",
     "lefthook": "2.0.8",
     "renovate": "42.37.0"
   },
