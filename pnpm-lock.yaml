@@ -18,8 +18,8 @@ importers:
         specifier: 0.3.4
         version: 0.3.4
       '@nozomiishii/prettier-config':
-        specifier: 0.6.6
-        version: 0.6.6
+        specifier: 0.7.0
+        version: 0.7.0
       lefthook:
         specifier: 2.0.8
         version: 2.0.8
@@ -378,8 +378,8 @@ packages:
     resolution: {integrity: sha512-jsWzKx3ktPpGDz5gaHkE7duttB4UYFwF9dQF6NSXv90zgA6ICQVJq01hh9t7yK4oPodaOkgG7Z/DmBYSK4krWw==}
     hasBin: true
 
-  '@nozomiishii/prettier-config@0.6.6':
-    resolution: {integrity: sha512-9MSKHWz1LSEeQdzracArb2gdSkPi55IpVFvhDy9a6FkTy2xM99p4KCcqSFdU8APaqI6reqwdfpUeHUHZelFdVQ==}
+  '@nozomiishii/prettier-config@0.7.0':
+    resolution: {integrity: sha512-BM5Mzq+p45+lX2hPAGm/ScjVIrUn3SphI+83Hu3vR+0ukXDMmon0DH9UffIsR/YwO+gDSaDOmcjGzVY1W+ohtg==}
     hasBin: true
 
   '@npmcli/agent@3.0.0':
@@ -4467,7 +4467,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@nozomiishii/prettier-config@0.6.6':
+  '@nozomiishii/prettier-config@0.7.0':
     dependencies:
       prettier: 3.7.4
       prettier-plugin-packagejson: 2.5.20(prettier@3.7.4)
