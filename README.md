@@ -41,6 +41,22 @@ mkdir -p .github
 echo '{ "extends": ["github>nozomiishii/renovate"] }' > .github/renovate.json
 ```
 
+vulnerabilityAlertsを使えるようにgithubのレポジトリを設定する
+- https://docs.renovatebot.com/configuration-options/#vulnerabilityalerts
+
+```bash
+gh repo list \
+  --limit 1000 \
+  --json name \
+  --jq '.[].name' | while read -r repo; do
+    echo "Configuring: $repo"
+    gh api \
+      --method PUT \
+      -H "Accept: application/vnd.github+json" \
+      "/repos/nozomiishii/$repo/vulnerability-alerts"
+done
+```
+
 ## Main
 
 [default.json](./default.json)
