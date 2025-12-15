@@ -66,11 +66,6 @@
       "groupName": "nozomiishii",
       "minimumReleaseAge": null,
       "matchPackageNames": ["/nozomiishii/"]
-    },
-    {
-      "matchPackageNames": ["node", "@types/node"],
-      "description": "Vercel does not support v22 yet https://vercel.com/docs/functions/runtimes/node-js/node-js-versions",
-      "allowedVersions": "22.x"
     }
   ],
 
