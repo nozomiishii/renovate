@@ -27,10 +27,10 @@
     "validate": "renovate-config-validator --strict default.json"
   },
   "devDependencies": {
-    "@nozomiishii/commitlint-config": "0.0.8",
-    "@nozomiishii/lefthook-config": "0.3.0",
-    "@nozomiishii/markdownlint-cli2-config": "0.3.4",
-    "@nozomiishii/prettier-config": "0.7.0",
+    "@nozomiishii/commitlint-config": "0.0.9",
+    "@nozomiishii/lefthook-config": "0.3.1",
+    "@nozomiishii/markdownlint-cli2-config": "0.3.5",
+    "@nozomiishii/prettier-config": "0.7.1",
     "lefthook": "2.0.15",
     "renovate": "42.82.3"
   },
