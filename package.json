@@ -34,7 +34,7 @@
     "lefthook": "2.0.15",
     "renovate": "42.90.0"
   },
-  "packageManager": "pnpm@10.28.1",
+  "packageManager": "pnpm@10.28.2",
   "engines": {
     "node": "24.13.0"
   },
