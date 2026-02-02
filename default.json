@@ -69,8 +69,6 @@
     }
   ],
 
-  "lockFileMaintenance": { "enabled": true },
-
   "postUpdateOptions": ["pnpmDedupe", "npmDedupe"],
 
   "git-submodules": {
