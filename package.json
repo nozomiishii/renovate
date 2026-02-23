@@ -32,7 +32,7 @@
     "@nozomiishii/markdownlint-cli2-config": "0.3.5",
     "@nozomiishii/prettier-config": "0.7.2",
     "lefthook": "2.1.1",
-    "renovate": "43.10.2"
+    "renovate": "43.26.4"
   },
   "packageManager": "pnpm@10.30.1",
   "engines": {
