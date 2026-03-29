@@ -24,3 +24,4 @@ lefthook-local.yaml
 **/.claude/settings.local.json
 **/CLAUDE.local.md
 **/.claude/worktrees/
+**/.claude/debug/
