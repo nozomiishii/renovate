@@ -9,8 +9,8 @@ importers:
   .:
     devDependencies:
       '@nozomiishii/commitlint-config':
-        specifier: 0.0.9
-        version: 0.0.9(@types/node@25.5.0)(conventional-commits-parser@6.4.0)(typescript@6.0.2)
+        specifier: 0.0.10
+        version: 0.0.10(@types/node@25.5.0)(conventional-commits-parser@6.4.0)(typescript@6.0.2)
       '@nozomiishii/lefthook-config':
         specifier: 0.3.6
         version: 0.3.6(lefthook@2.1.4)
@@ -257,13 +257,13 @@ packages:
   '@cdktf/hcl2json@0.21.0':
     resolution: {integrity: sha512-cwX3i/mSJI/cRrtqwEPRfawB7pXgNioriSlkvou8LWiCrrcDe9ZtTbAbu8W1tEJQpe1pnX9VEgpzf/BbM7xF8Q==}
 
-  '@commitlint/cli@20.3.1':
-    resolution: {integrity: sha512-NtInjSlyev/+SLPvx/ulz8hRE25Wf5S9dLNDcIwazq0JyB4/w1ROF/5nV0ObPTX8YpRaKYeKtXDYWqumBNHWsw==}
+  '@commitlint/cli@20.5.0':
+    resolution: {integrity: sha512-yNkyN/tuKTJS3wdVfsZ2tXDM4G4Gi7z+jW54Cki8N8tZqwKBltbIvUUrSbT4hz1bhW/h0CdR+5sCSpXD+wMKaQ==}
     engines: {node: '>=v18'}
     hasBin: true
 
-  '@commitlint/config-conventional@20.3.1':
-    resolution: {integrity: sha512-NCzwvxepstBZbmVXsvg49s+shCxlJDJPWxXqONVcAtJH9wWrOlkMQw/zyl+dJmt8lyVopt5mwQ3mR5M2N2rUWg==}
+  '@commitlint/config-conventional@20.5.0':
+    resolution: {integrity: sha512-t3Ni88rFw1XMa4nZHgOKJ8fIAT9M2j5TnKyTqJzsxea7FUetlNdYFus9dz+MhIRZmc16P0PPyEfh6X2d/qw8SA==}
     engines: {node: '>=v18'}
 
   '@commitlint/config-validator@20.5.0':
@@ -322,10 +322,6 @@ packages:
     resolution: {integrity: sha512-qD9xfP6dFg5jQ3NMrOhG0/w5y3bBUsVGyJvXxdWEwBm8hyx4WOk3kKXw28T5czBYvyeCVJgJJ6aoJZUWDpaacQ==}
     engines: {node: '>=v18'}
 
-  '@commitlint/types@20.3.1':
-    resolution: {integrity: sha512-VmIFV/JkBRhDRRv7N5B7zEUkNZIx9Mp+8Pe65erz0rKycXLsi8Epcw0XJ+btSeRXgTzE7DyOyA9bkJ9mn/yqVQ==}
-    engines: {node: '>=v18'}
-
   '@commitlint/types@20.5.0':
     resolution: {integrity: sha512-ZJoS8oSq2CAZEpc/YI9SulLrdiIyXeHb/OGqGrkUP6Q7YV+0ouNAa7GjqRdXeQPncHQIDz/jbCTlHScvYvO/gA==}
     engines: {node: '>=v18'}
@@ -375,8 +371,8 @@ packages:
     resolution: {integrity: sha512-oGB+UxlgWcgQkgwo8GcEGwemoTFt3FIO9ababBmaGwXIoBKZ+GTy0pP185beGg7Llih/NSHSV2XAs1lnznocSg==}
     engines: {node: '>= 8'}
 
-  '@nozomiishii/commitlint-config@0.0.9':
-    resolution: {integrity: sha512-xgdRCVfYmTGmwQX4lZcQKXuwaS0dS/SmvolrqbAItSSm1J1ji8w3c7zefeg16YlNbGjIisOv/xZdcJh5AjgE3g==}
+  '@nozomiishii/commitlint-config@0.0.10':
+    resolution: {integrity: sha512-TV9t41+Y83J8YfnDEihvM0Htd9H0VgccVagzQqMzSVL1IRKIBnC/MD7sWCabRJNpBgmDeL0j10h8jxAA92KzJw==}
     hasBin: true
 
   '@nozomiishii/lefthook-config@0.3.6':
@@ -943,9 +939,6 @@ packages:
   '@types/cacheable-request@6.0.3':
     resolution: {integrity: sha512-IQ3EbTzGxIigb1I3qPZc1rWJnH0BmSKv5QYTalEwweFvyBDLSAe24zP0le/hyi7ecGfZVlIVAg4BZqb8WBwKqw==}
 
-  '@types/conventional-commits-parser@5.0.2':
-    resolution: {integrity: sha512-BgT2szDXnVypgpNxOK8aL5SGjUdaQbC++WZNjF1Qge3Og2+zhHj+RWhmehLhYyvQwqAmvezruVfOf8+3m74W+g==}
-
   '@types/debug@4.1.13':
     resolution: {integrity: sha512-KSVgmQmzMwPlmtljOomayoR89W4FynCAi3E8PPs7vmDVPe84hT+vGPKkJfThkmXs0x0jAaa9U8uW8bbfyS2fWw==}
 
@@ -1212,10 +1205,6 @@ packages:
     resolution: {integrity: sha512-oKnbhFyRIXpUuez8iBMmyEa4nbj4IOQyuhc/wy9kY7/WVPcwIO9VA668Pu8RkO7+0G76SLROeyw9CpQ061i4mA==}
     engines: {node: '>=10'}
 
-  chalk@5.6.2:
-    resolution: {integrity: sha512-7NzBL0rN6fMUW+f7A6Io4h40qQlG+xGmtMxfbnH/K7TAtt8JQWVQK+6g0UXKMeVJoyV5EkkNsErQ8pVD3bLHbA==}
-    engines: {node: ^12.17.0 || ^14.13 || >=16.0.0}
-
   changelog-filename-regex@2.0.1:
     resolution: {integrity: sha512-DZdyJpCprw8V3jp8V2x13nAA05Yy/IN+Prowj+0mrAHNENYkuMtNI4u5m449TTjPqShIslQSEuXee+Jtkn4m+g==}
 
@@ -1286,9 +1275,9 @@ packages:
     resolution: {integrity: sha512-6gfI3otXK5Ph5DfCOI1dblr+kN3FAm5a97hYoQkqNZxOaYa5WKfXH+AnpsmS+iUH2mgVC2Cg2Qw9m5OKcmNrIg==}
     engines: {node: '>=18'}
 
-  conventional-changelog-conventionalcommits@7.0.2:
-    resolution: {integrity: sha512-NKXYmMR/Hr1DevQegFB4MwfM5Vv0m4UIxKZTTYuD98lpTknaZlSRrDOG4X7wIXpGkfsYxZTghUN+Qq+T0YQI7w==}
-    engines: {node: '>=16'}
+  conventional-changelog-conventionalcommits@9.3.1:
+    resolution: {integrity: sha512-dTYtpIacRpcZgrvBYvBfArMmK2xvIpv2TaxM0/ZI5CBtNUzvF2x0t15HsbRABWprS6UPmvj+PzHVjSx4qAVKyw==}
+    engines: {node: '>=18'}
 
   conventional-commits-detector@1.0.3:
     resolution: {integrity: sha512-VlBCTEg34Bbvyh7MPYtmgoYPsP69Z1BusmthbiUbzTiwfhLZWRDEWsJHqWyiekSC9vFCHGT/jKOzs8r21MUZ5g==}
@@ -4103,7 +4092,7 @@ snapshots:
     dependencies:
       fs-extra: 11.3.0
 
-  '@commitlint/cli@20.3.1(@types/node@25.5.0)(conventional-commits-parser@6.4.0)(typescript@6.0.2)':
+  '@commitlint/cli@20.5.0(@types/node@25.5.0)(conventional-commits-parser@6.4.0)(typescript@6.0.2)':
     dependencies:
       '@commitlint/format': 20.5.0
       '@commitlint/lint': 20.5.0
@@ -4118,10 +4107,10 @@ snapshots:
       - conventional-commits-parser
       - typescript
 
-  '@commitlint/config-conventional@20.3.1':
+  '@commitlint/config-conventional@20.5.0':
     dependencies:
       '@commitlint/types': 20.5.0
-      conventional-changelog-conventionalcommits: 7.0.2
+      conventional-changelog-conventionalcommits: 9.3.1
 
   '@commitlint/config-validator@20.5.0':
     dependencies:
@@ -4212,11 +4201,6 @@ snapshots:
     dependencies:
       escalade: 3.2.0
 
-  '@commitlint/types@20.3.1':
-    dependencies:
-      '@types/conventional-commits-parser': 5.0.2
-      chalk: 5.6.2
-
   '@commitlint/types@20.5.0':
     dependencies:
       conventional-commits-parser: 6.4.0
@@ -4261,11 +4245,11 @@ snapshots:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.20.1
 
-  '@nozomiishii/commitlint-config@0.0.9(@types/node@25.5.0)(conventional-commits-parser@6.4.0)(typescript@6.0.2)':
+  '@nozomiishii/commitlint-config@0.0.10(@types/node@25.5.0)(conventional-commits-parser@6.4.0)(typescript@6.0.2)':
     dependencies:
-      '@commitlint/cli': 20.3.1(@types/node@25.5.0)(conventional-commits-parser@6.4.0)(typescript@6.0.2)
-      '@commitlint/config-conventional': 20.3.1
-      '@commitlint/types': 20.3.1
+      '@commitlint/cli': 20.5.0(@types/node@25.5.0)(conventional-commits-parser@6.4.0)(typescript@6.0.2)
+      '@commitlint/config-conventional': 20.5.0
+      '@commitlint/types': 20.5.0
     transitivePeerDependencies:
       - '@types/node'
       - conventional-commits-filter
@@ -4997,10 +4981,6 @@ snapshots:
       '@types/node': 25.5.0
       '@types/responselike': 1.0.3
 
-  '@types/conventional-commits-parser@5.0.2':
-    dependencies:
-      '@types/node': 25.5.0
-
   '@types/debug@4.1.13':
     dependencies:
       '@types/ms': 2.1.0
@@ -5306,8 +5286,6 @@ snapshots:
       ansi-styles: 4.3.0
       supports-color: 7.2.0
 
-  chalk@5.6.2: {}
-
   changelog-filename-regex@2.0.1: {}
 
   character-entities-legacy@3.0.0: {}
@@ -5365,7 +5343,7 @@ snapshots:
     dependencies:
       compare-func: 2.0.0
 
-  conventional-changelog-conventionalcommits@7.0.2:
+  conventional-changelog-conventionalcommits@9.3.1:
     dependencies:
       compare-func: 2.0.0
 
