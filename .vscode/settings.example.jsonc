@@ -1,0 +1,8 @@
+{
+  // default.json は Renovate preset で JSONC コメント (// や /* */) を含んでいる。
+  // Renovate のパーサは問題なく解釈するが、VS Code は .json 拡張子だと strict JSON 扱いで
+  // 赤線 (syntax error) を出してしまうため、JSONC として関連付ける。
+  "files.associations": {
+    "default.json": "jsonc"
+  }
+}
