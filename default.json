@@ -3,8 +3,6 @@
 
   "extends": ["config:best-practices", ":semanticCommitTypeAll(chore)", ":semanticCommitScopeDisabled"],
 
-  "dependencyDashboard": true,
-
   "labels": ["dependencies"],
   "timezone": "Asia/Tokyo",
   "prConcurrentLimit": 0,
@@ -13,14 +11,9 @@
   "semanticCommits": "enabled",
   "rangeStrategy": "pin",
   "separateMultipleMajor": true,
-  "platformAutomerge": true,
   "automerge": true,
   "major": {
     "automerge": false
-  },
-
-  "vulnerabilityAlerts": {
-    "enabled": true
   },
 
   "osvVulnerabilityAlerts": true,
