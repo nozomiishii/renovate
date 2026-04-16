@@ -25,3 +25,6 @@ lefthook-local.yaml
 **/CLAUDE.local.md
 **/.claude/worktrees/
 **/.claude/debug/
+
+# pnpm
+.pnpm-store
