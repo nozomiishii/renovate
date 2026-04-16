@@ -48,8 +48,8 @@
   },
 
   "packageRules": [
+    // renovate 本体の更新は頻度が高いので週 1 に絞る
     {
-      "description": "Limit renovate package updates to a weekly schedule",
       "matchPackageNames": ["renovate"],
       "schedule": ["before 9am on Monday"]
     },
@@ -81,11 +81,11 @@
     },
 
     // 自前 (nozomiishii/*) パッケージは security:minimumReleaseAgeNpm が
-    // 課す 3 日待ちを解除して即時取り込み。
-    // packageRules は後方優先なので必ず最後に配置
+    // 課す 3 日待ちを解除して即時取り込みする。
+    // packageRules は後方のルールほど優先されるので必ず最後に配置
     // https://docs.renovatebot.com/configuration-options/#packagerules
     {
-      "description": "Rank packageRules from least to most important as Renovate allows lower rules to override higher ones. For more details, see: https://docs.renovatebot.com/configuration-options/#packagerules:~:text=Order%20your%20packageRules",
+      "description": "Opt nozomiishii/* packages out of the minimumReleaseAge delay",
       "groupName": "nozomiishii",
       "minimumReleaseAge": null,
       "matchPackageNames": ["/nozomiishii/"]
