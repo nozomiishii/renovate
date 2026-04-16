@@ -1,25 +1,48 @@
 {
+  // エディタ (VS Code 等) で補完・検証を効かせるための JSON Schema 参照
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
 
+  // 採用 preset:
+  // - config:best-practices: Renovate 推奨一式 (config:recommended + docker/action digest pin +
+  //   :pinDevDependencies + security:minimumReleaseAgeNpm (npm 3 日待ち) + :maintainLockFilesWeekly)
+  // - :semanticCommitTypeAll(chore): 全 PR を chore: prefix に統一
+  //   (recommended の :semanticPrefixFixDepsChoreOthers の fix/chore 分けを上書き)
+  // - :semanticCommitScopeDisabled: semantic commit の scope 部分を付けない
   "extends": ["config:best-practices", ":semanticCommitTypeAll(chore)", ":semanticCommitScopeDisabled"],
 
+  // 自動生成 PR に付けるラベル
   "labels": ["dependencies"],
+
+  // schedule の基準タイムゾーン (デフォルト UTC)
   "timezone": "Asia/Tokyo",
+
+  // 0 = 無制限。デフォルトの 10 並列 / 2 per hour 制限を外して一気に流す
   "prConcurrentLimit": 0,
   "prHourlyLimit": 0,
 
+  // semantic commit を明示的に on (デフォルト "auto" は history から推測する挙動)
   "semanticCommits": "enabled",
+
+  // ^ / ~ を付けず固定バージョンに揃える (デフォルト "auto")
+  // peerDependencies だけは下の packageRules で "bump" に上書き
   "rangeStrategy": "pin",
+
+  // メジャー毎に別 PR を作る (例: v3→v4 と v4→v5 を分離)
   "separateMultipleMajor": true,
+
+  // minor / patch は自動マージ。major は下の上書きで無効化
   "automerge": true,
   "major": {
     "automerge": false
   },
 
+  // GitHub Security Advisory に加え osv.dev の脆弱性 DB も監視 (デフォルト false)
   "osvVulnerabilityAlerts": true,
 
+  // base branch に新 commit が来ても conflict が発生するまで rebase しない (ノイズ削減)
   "rebaseWhen": "conflicted",
 
+  // flake.nix の inputs 更新を有効化 (デフォルト false)
   "nix": {
     "enabled": true
   },
@@ -30,6 +53,8 @@
       "matchPackageNames": ["renovate"],
       "schedule": ["before 9am on Monday"]
     },
+
+    // 関連パッケージのグルーピング (個別 PR 乱立を防ぐ)
     {
       "groupName": "figma-export",
       "matchPackageNames": ["/figma-export/"]
@@ -42,14 +67,23 @@
       "groupName": "textlint",
       "matchPackageNames": ["/textlint/"]
     },
+
+    // download / upload は片側だけ上がると CI が壊れがちなので一緒に
     {
       "matchPackageNames": ["actions/download-artifact", "actions/upload-artifact"],
       "groupName": "artifact"
     },
+
+    // peerDeps はライブラリ互換性維持のため pin せず範囲を bump
     {
       "matchDepTypes": ["peerDependencies"],
       "rangeStrategy": "bump"
     },
+
+    // 自前 (nozomiishii/*) パッケージは security:minimumReleaseAgeNpm が
+    // 課す 3 日待ちを解除して即時取り込み。
+    // packageRules は後方優先なので必ず最後に配置
+    // https://docs.renovatebot.com/configuration-options/#packagerules
     {
       "description": "Rank packageRules from least to most important as Renovate allows lower rules to override higher ones. For more details, see: https://docs.renovatebot.com/configuration-options/#packagerules:~:text=Order%20your%20packageRules",
       "groupName": "nozomiishii",
@@ -58,13 +92,17 @@
     }
   ],
 
+  // 更新後に lockfile を自動 dedupe (pnpm dedupe / npm dedupe)
   "postUpdateOptions": ["pnpmDedupe", "npmDedupe"],
 
+  // git submodule の ref 更新を追従対象にする (デフォルト false)
   "git-submodules": {
     "enabled": true
   },
 
+  // 公式 manager が拾えない箇所の追従用 custom manager
   "customManagers": [
+    // pnpm-workspace.yaml の useNodeVersion を node-version datasource で追従
     {
       "customType": "regex",
       "managerFilePatterns": ["/^pnpm-workspace\\.ya?ml$/"],
