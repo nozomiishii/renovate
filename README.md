@@ -7,10 +7,10 @@ Nozomi's Recommended [Renovate](https://docs.renovatebot.com/) Config.
 <!-- Main Image -->
 <br>
 <div align="center">
-  <img src="https://media.giphy.com/media/f7b9ltJ4FrhnsKjYx2/giphy.gif" alt="Coding" width="480" />
+  <img src="https://media.giphy.com/media/FsSCH3UTQHIfnLHmBj/giphy.gif" alt="reborn" width="480" />
 </div>
 <div align="right">
-  <small>via TLC Europe on GIPHY</small>
+  <small>via GIPHY</small>
 </div>
 <br>
 <!-- shields -->
