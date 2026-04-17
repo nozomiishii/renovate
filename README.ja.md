@@ -1,6 +1,6 @@
 # Renovate
 
-English | [日本語](./README.ja.md)
+[English](./README.md) | 日本語
 
 Nozomi's Recommended [Renovate](https://docs.renovatebot.com/) Config.
 
@@ -43,7 +43,7 @@ mkdir -p .github
 echo '{ "extends": ["github>nozomiishii/renovate"] }' > .github/renovate.json
 ```
 
-Configure your GitHub repository to enable vulnerabilityAlerts.
+vulnerabilityAlertsを使えるようにgithubのレポジトリを設定する
 
 - https://docs.renovatebot.com/configuration-options/#vulnerabilityalerts
 
@@ -62,11 +62,11 @@ done
 
 ## Main
 
-All settings are consolidated in [default.json](./default.json). See the inline comments for the intent behind each option.
+[default.json](./default.json) に全設定を集約。各設定の意図はインラインコメントを参照。
 
 ## tips
 
-### Group related packages and update them together
+### 関連するパッケージをグループ化して一緒に更新したい
 
 ```json
 {
@@ -75,7 +75,7 @@ All settings are consolidated in [default.json](./default.json). See the inline 
 }
 ```
 
-### Pin a package to a specific version
+### 特定のバージョンで更新を止めたい
 
 ```json
 {
@@ -93,7 +93,7 @@ All settings are consolidated in [default.json](./default.json). See the inline 
 }
 ```
 
-### Bump versions in places Renovate does not support out of the box
+### renovateが未対応の場所のバージョン上げたい
 
 ```json
 {
