@@ -36,6 +36,15 @@
     "automerge": false
   },
 
+  // security:minimumReleaseAgeNpm は npm datasource にしか 3 日待ちを課さない。
+  // 同じ 3 日待ちを全 datasource に拡張する。
+  // 値は Renovate 公式判断 (security:minimumReleaseAgeNpm の 3 日) を踏襲。
+  // lockFileMaintenance / pin / replacement は Renovate 側で release age が
+  // wire されていないため自動的に即時取り込み:
+  //   https://docs.renovatebot.com/key-concepts/minimum-release-age/#which-update-types-take-minimumreleaseage-into-account
+  // CVE パッチも vulnerabilityAlerts がバイパスするため影響なし。
+  "minimumReleaseAge": "3 days",
+
   // GitHub Security Advisory に加え osv.dev の脆弱性 DB も監視 (デフォルト false)
   "osvVulnerabilityAlerts": true,
 
@@ -80,7 +89,7 @@
       "rangeStrategy": "bump"
     },
 
-    // 自前 (nozomiishii/*) パッケージは security:minimumReleaseAgeNpm が
+    // 自前 (nozomiishii/*) パッケージは top-level minimumReleaseAge が
     // 課す 3 日待ちを解除して即時取り込みする。
     // packageRules は後方のルールほど優先されるので必ず最後に配置
     // https://docs.renovatebot.com/configuration-options/#packagerules
