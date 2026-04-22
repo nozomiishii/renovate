@@ -86,8 +86,11 @@
     // 同じ 3 日待ちを npm 以外 (GitHub Actions, Docker, submodule, nix 等) にも
     // 拡張し、supply chain 防御の穴を塞ぐ。
     // 値は Renovate 公式判断 (security:minimumReleaseAgeNpm の 3 日) を踏襲。
-    // 7 日への延長は marginal benefit が約 13pp のみで、CVE パッチ取り込み遅延と
-    // 釣り合わない。
+    // 7 日への延長は marginal benefit が約 13pp のみで、通常更新が 4 日長く
+    // 遅れるコストと釣り合わない。
+    // (CVE パッチは vulnerabilityAlerts のデフォルト minimumReleaseAge=null +
+    //  prCreation=immediate で即時取り込みされ、ここで設定する値の影響を
+    //  受けないため、dev velocity の議論は通常更新にのみ関わる)
     // 詳細: https://github.com/nozomiishii/renovate/issues/624
     {
       "description": "Extend the 3-day minimumReleaseAge delay to all datasources, not just npm",
