@@ -80,6 +80,30 @@
       "rangeStrategy": "bump"
     },
 
+    // security:minimumReleaseAgeNpm は npm datasource にしか 3 日待ちを課さない。
+    // 2024-2026 の npm インシデントを見ると、攻撃版の検出・unpublish は
+    // 大半が 72 時間以内に完了している (Socket / Aikido / Phylum による自動監視)。
+    // 同じ 3 日待ちを npm 以外 (GitHub Actions, Docker, submodule, nix 等) にも
+    // 拡張し、supply chain 防御の穴を塞ぐ。
+    // 値は Renovate 公式判断 (security:minimumReleaseAgeNpm の 3 日) を踏襲。
+    // 7 日への延長は marginal benefit が約 13pp のみで、CVE パッチ取り込み遅延と
+    // 釣り合わない。
+    // 詳細: https://github.com/nozomiishii/renovate/issues/624
+    {
+      "description": "Extend the 3-day minimumReleaseAge delay to all datasources, not just npm",
+      "matchPackageNames": ["*"],
+      "minimumReleaseAge": "3 days"
+    },
+    // security:minimumReleaseAgeNpm の 3 つの例外 (lockFileMaintenance /
+    // replacement / pin) を全 datasource で再適用する。
+    // Renovate 自体がこれらの path で release age を参照していないため、
+    // 待たせても実効がなく、むしろ lockfile 更新を止めてしまう。
+    {
+      "description": "Preserve the exceptions security:minimumReleaseAgeNpm defines for lockFileMaintenance / replacement / pin across all datasources",
+      "matchUpdateTypes": ["lockFileMaintenance", "replacement", "pin"],
+      "minimumReleaseAge": null
+    },
+
     // 自前 (nozomiishii/*) パッケージは security:minimumReleaseAgeNpm が
     // 課す 3 日待ちを解除して即時取り込みする。
     // packageRules は後方のルールほど優先されるので必ず最後に配置
