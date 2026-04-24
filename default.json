@@ -2,13 +2,21 @@
   // エディタ (VS Code 等) で補完・検証を効かせるための JSON Schema 参照
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
 
-  // 採用 preset:
-  // - config:best-practices: Renovate 推奨一式 (config:recommended + docker/action digest pin +
-  //   :pinDevDependencies + security:minimumReleaseAgeNpm (npm 3 日待ち) + :maintainLockFilesWeekly)
-  // - :semanticCommitTypeAll(chore): 全 PR を chore: prefix に統一
-  //   (recommended の :semanticPrefixFixDepsChoreOthers の fix/chore 分けを上書き)
-  // - :semanticCommitScopeDisabled: semantic commit の scope 部分を付けない
-  "extends": ["config:best-practices", ":semanticCommitTypeAll(chore)", ":semanticCommitScopeDisabled"],
+  "extends": [
+    // Renovate 推奨一式 (config:recommended + docker/action digest pin +
+    // :pinDevDependencies + security:minimumReleaseAgeNpm (npm 3 日待ち) + :maintainLockFilesWeekly)
+    "config:best-practices",
+
+    // GitHub Action の pin を semver tag (`@v16.6.0`) 前提に切り替える。
+    // major-only tag (`@v16`) は追跡対象から外れ、tag 再ポイントでの差し替え攻撃を防ぐ。
+    "helpers:pinGitHubActionDigestsToSemver",
+
+    // 全 PR を chore: prefix に統一 (recommended の :semanticPrefixFixDepsChoreOthers の fix/chore 分けを上書き)
+    ":semanticCommitTypeAll(chore)",
+
+    // semantic commit の scope 部分を付けない
+    ":semanticCommitScopeDisabled"
+  ],
 
   // 自動生成 PR に付けるラベル
   "labels": ["dependencies"],
