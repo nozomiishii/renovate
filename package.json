@@ -34,7 +34,7 @@
     "@nozomiishii/postinstall": "0.0.7",
     "@nozomiishii/prettier-config": "0.7.2",
     "lefthook": "2.1.6",
-    "renovate": "43.139.8"
+    "renovate": "43.140.0"
   },
   "packageManager": "pnpm@10.33.2",
   "engines": {
