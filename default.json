@@ -15,7 +15,12 @@
     ":semanticCommitTypeAll(chore)",
 
     // semantic commit の scope 部分を付けない
-    ":semanticCommitScopeDisabled"
+    ":semanticCommitScopeDisabled",
+
+    // Makefile / GNUMakefile / *.mk の `# renovate: ...` annotation 付き `_VERSION` 変数を追従。
+    // 公式 preset (https://docs.renovatebot.com/presets-customManagers/#custommanagersmakefileversions)。
+    // Docker via Makefile pattern (Terraform エコシステム lint tools 等) で使用。
+    "customManagers:makefileVersions"
   ],
 
   // 自動生成 PR に付けるラベル
