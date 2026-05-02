@@ -9,12 +9,12 @@ useNodeVersion: 24.15.0
 
 # 依存解決のうまくいっていないdependenciesのdependenciesをrootのnode_modulesまで巻き上げる
 publicHoistPattern:
-  - '@types/*'
-  - '*eslint*'
-  - '*prettier*'
+  - "@types/*"
+  - "*eslint*"
+  - "*prettier*"
 
 # pinバージョンでインストールする
-savePrefix: ''
+savePrefix: ""
 
 # 公開から3日未満のバージョンをインストールしない（サプライチェーン攻撃対策）
 # https://pnpm.io/settings#minimumreleaseage

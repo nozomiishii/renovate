@@ -1,1 +1,1 @@
-module.exports = { extends: ['@nozomiishii'] };
+module.exports = { extends: ["@nozomiishii"] };
