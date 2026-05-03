@@ -8,16 +8,11 @@
 
 ## アーキテクチャ概要
 
-`renovate` は Renovate Bot の共有設定パッケージです。
-
-- `default.json`: 主設定（`extends` や best practices を組み合わせている）
-- `.github/workflows/`: CI（format / validate / actionlint / secretlint / PR title check 等）
-- `bin/cli.sh`: npm/pnpm 経由で `npx -y @nozomiishii/renovate@latest` を実行するための CLI
+`renovate` は Renovate Bot の共有設定パッケージです。エントリポイントは `default.json`（`extends` や best practices を組み合わせた主設定）。
 
 ## 重要なパターン
 
 - 変更は基本的に `default.json` を中心に行い、更新後は `pnpm validate` で strict に検証する。
-- JSON の編集後は `pnpm format` / `pnpm prettier` を必ず反映させる。
 
 ## リリース・Conventional Commits
 
