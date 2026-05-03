@@ -49,6 +49,12 @@
     "automerge": false
   },
 
+  // GitHub native auto-merge は branch ruleset の required に登録された check しか待たないので、
+  // false にして Renovate worker 側で PR の全 status check / check run を gate にする。
+  // 代償: マージは次回 Renovate run まで遅延。
+  // https://docs.renovatebot.com/key-concepts/automerge/
+  "platformAutomerge": false,
+
   // security:minimumReleaseAgeNpm は npm datasource にしか 3 日待ちを課さない。
   // 同じ 3 日待ちを全 datasource に拡張する。
   // 値は Renovate 公式判断 (security:minimumReleaseAgeNpm の 3 日) を踏襲。
