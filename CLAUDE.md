@@ -2,22 +2,6 @@
 
 このリポジトリで Claude Code (claude.ai/code) が作業する際のガイドラインです。
 
-## よく使うコマンド
-
-```sh
-# Prettier check
-pnpm format
-
-# Prettier format
-pnpm format:fix
-
-# Prettier (write)
-pnpm prettier
-
-# Renovate config validation
-pnpm validate
-```
-
 ## Git・GitHub 運用ルール
 
 - PR タイトルは英語 semantic 形式で、CI の semantic pull request チェックに従う。詳細は [.github/workflows/_pull-request.yaml](.github/workflows/_pull-request.yaml) を参照。
