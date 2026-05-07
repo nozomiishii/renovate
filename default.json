@@ -64,6 +64,19 @@
   // CVE パッチも vulnerabilityAlerts がバイパスするため影響なし。
   "minimumReleaseAge": "3 days",
 
+  // lockFileMaintenance は minimumReleaseAge を enforce しない仕様だが、グローバル設定がある以上
+  // `renovate/stability-days` status check は永遠 PENDING で post される。
+  // platformAutomerge: false の worker は PR 全 status を gate にするため、この check のせいで
+  // lockFileMaintenance PR の automerge が恒久 block されてしまう。
+  // statusCheckNames を null override して該当 PR では check 自体を post させず、他 CI 通過後に
+  // worker が merge できるようにする。
+  // https://docs.renovatebot.com/key-concepts/minimum-release-age/#which-update-types-take-minimumreleaseage-into-account
+  "lockFileMaintenance": {
+    "statusCheckNames": {
+      "minimumReleaseAge": null
+    }
+  },
+
   // GitHub Security Advisory に加え osv.dev の脆弱性 DB も監視 (デフォルト false)
   "osvVulnerabilityAlerts": true,
 
