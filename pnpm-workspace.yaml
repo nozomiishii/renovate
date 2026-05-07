@@ -8,14 +8,14 @@
 # 不要・別経路で代替できるなら false。推移依存はコメントで導入経路を明記する
 allowBuilds:
   # ── 直接依存 ──
-  lefthook: false             # フック登録は @nozomiishii/postinstall 経由で行うため不要
+  lefthook: false # フック登録は @nozomiishii/postinstall 経由で行うため不要
 
   # ── 推移依存（renovate 経由） ──
-  better-sqlite3: true        # renovate のリポジトリキャッシュに使用
-  core-js-pure: true          # @babel/runtime-corejs3 → @qnighy/marshal 経由、polyfill
-  dtrace-provider: false      # bunyan 経由、macOS/Solaris の DTrace 連携用 optional 機能。失敗時は no-op fallback で動作するため build 不要
-  protobufjs: true            # @opentelemetry/exporter-trace-otlp-http 経由、OTLP 出力で使用
-  re2: true                   # renovate 直接、RE2 regex engine
+  better-sqlite3: true # renovate のリポジトリキャッシュに使用
+  core-js-pure: true # @babel/runtime-corejs3 → @qnighy/marshal 経由、polyfill
+  dtrace-provider: false # bunyan 経由、macOS/Solaris の DTrace 連携用 optional 機能。失敗時は no-op fallback で動作するため build 不要
+  protobufjs: true # @opentelemetry/exporter-trace-otlp-http 経由、OTLP 出力で使用
+  re2: true # renovate 直接、RE2 regex engine
 
 # 依存解決のうまくいっていないdependenciesのdependenciesをrootのnode_modulesまで巻き上げる
 publicHoistPattern:
