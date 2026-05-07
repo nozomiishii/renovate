@@ -55,22 +55,16 @@
   // https://docs.renovatebot.com/key-concepts/automerge/
   "platformAutomerge": false,
 
-  // security:minimumReleaseAgeNpm は npm datasource にしか 3 日待ちを課さない。
-  // 同じ 3 日待ちを全 datasource に拡張する。
-  // 値は Renovate 公式判断 (security:minimumReleaseAgeNpm の 3 日) を踏襲。
-  // lockFileMaintenance / pin / replacement は Renovate 側で release age が
-  // wire されていないため自動的に即時取り込み:
-  //   https://docs.renovatebot.com/key-concepts/minimum-release-age/#which-update-types-take-minimumreleaseage-into-account
-  // CVE パッチも vulnerabilityAlerts がバイパスするため影響なし。
+  // security:minimumReleaseAgeNpm の 3 日待ちを全 datasource に拡張する。値は公式判断 (3 日) を踏襲。
+  // enforce 対象は major/minor/patch のみ。lockFileMaintenance や pin/replacement 等は対象外
+  // (ただし lockFileMaintenance だけは stability-days を post してくるため下記で抑止)。
+  // CVE パッチは vulnerabilityAlerts がバイパスするため影響なし。
+  // https://docs.renovatebot.com/key-concepts/minimum-release-age/#which-update-types-take-minimumreleaseage-into-account
   "minimumReleaseAge": "3 days",
 
-  // lockFileMaintenance は minimumReleaseAge を enforce しない仕様だが、グローバル設定がある以上
-  // `renovate/stability-days` status check は永遠 PENDING で post される。
-  // platformAutomerge: false の worker は PR 全 status を gate にするため、この check のせいで
-  // lockFileMaintenance PR の automerge が恒久 block されてしまう。
-  // statusCheckNames を null override して該当 PR では check 自体を post させず、他 CI 通過後に
-  // worker が merge できるようにする。
-  // https://docs.renovatebot.com/key-concepts/minimum-release-age/#which-update-types-take-minimumreleaseage-into-account
+  // lockFileMaintenance は minimumReleaseAge を enforce しないが、グローバル設定があると
+  // `renovate/stability-days` が永遠 PENDING で post され、platformAutomerge: false の
+  // worker による automerge を恒久 block する。null override で該当 PR の check 自体を抑止。
   "lockFileMaintenance": {
     "statusCheckNames": {
       "minimumReleaseAge": null
