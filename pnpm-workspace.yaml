@@ -4,15 +4,18 @@
 # pnpm config list
 # ```
 
-# lefthook のフック登録は @nozomiishii/postinstall 経由で行うため、
-# パッケージ自身の install スクリプト実行は不要。
-# それ以外は renovate のネイティブ依存（better-sqlite3, re2, dtrace-provider 等）の
+# build script は未記載のものはデフォルトで実行しない (v11 の挙動)。
+# strictDepBuilds: false で「未記載＝warning」に格下げし、
+# install を止めずに済ませる。本当に build が必要なものだけ
+# allowBuilds に true で明示する
+strictDepBuilds: false
+
+# renovate のネイティブ依存（better-sqlite3, re2, dtrace-provider 等）の
 # install スクリプトを許可
 allowBuilds:
   better-sqlite3: true
   core-js-pure: true
   dtrace-provider: true
-  lefthook: false
   protobufjs: true
   re2: true
 
@@ -24,3 +27,6 @@ publicHoistPattern:
 
 # pinバージョンでインストールする
 savePrefix: ""
+
+# ログ出力形式をカスタマイズ
+reporter: append-only
