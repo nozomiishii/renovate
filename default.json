@@ -134,18 +134,5 @@
   // git submodule の ref 更新を追従対象にする (デフォルト false)
   "git-submodules": {
     "enabled": true
-  },
-
-  // 公式 manager が拾えない箇所の追従用 custom manager
-  "customManagers": [
-    // pnpm-workspace.yaml の useNodeVersion を node-version datasource で追従
-    {
-      "customType": "regex",
-      "managerFilePatterns": ["/^pnpm-workspace\\.ya?ml$/"],
-      "matchStrings": ["useNodeVersion:\\s*(?<currentValue>[\\d.]+)"],
-      "datasourceTemplate": "node-version",
-      "depNameTemplate": "node",
-      "versioningTemplate": "node"
-    }
-  ]
+  }
 }
