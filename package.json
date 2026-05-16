@@ -24,7 +24,7 @@
     "format": "pnpm prettier . --check",
     "format:fix": "pnpm prettier . --write",
     "postinstall": "postinstall",
-    "prettier": "prettier --ignore-unknown",
+    "prettier": "prettier --ignore-unknown --cache",
     "validate": "renovate-config-validator --strict default.json"
   },
   "devDependencies": {
