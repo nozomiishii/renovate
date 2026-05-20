@@ -128,6 +128,23 @@
     }
   ],
 
+  // `with: version:` で固定したツールのバージョンを Renovate に追従させる custom manager。
+  // 追従したい version: の直上に、公式 preset と同形の `# renovate:` コメントを 1 行置くだけ:
+  //   with:
+  //     # renovate: datasource=docker depName=1password/op versioning=semver
+  //     version: "2.34.0"
+  // コメントが目印なので step の並び順や他 input の有無に左右されず、他 step の version: も誤検出しない。
+  "customManagers": [
+    {
+      "description": "Track tool versions pinned via `with: version:` in workflows, anchored on a `# renovate:` annotation (same convention as the githubActionsVersions preset, adapted for `version:` instead of *_VERSION env vars)",
+      "customType": "regex",
+      "managerFilePatterns": ["/(^|/)\\.github/workflows/[^/]+\\.yaml$/"],
+      "matchStrings": [
+        "# renovate: datasource=(?<datasource>[a-zA-Z0-9-._]+?) depName=(?<depName>[^\\s]+?)(?: versioning=(?<versioning>[^\\s]+?))?\\s+version:\\s*[\"']?(?<currentValue>[^\"'\\s]+)[\"']?"
+      ]
+    }
+  ],
+
   // 更新後に lockfile を自動 dedupe (pnpm dedupe / npm dedupe)
   "postUpdateOptions": ["pnpmDedupe", "npmDedupe"],
 
