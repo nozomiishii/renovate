@@ -128,24 +128,32 @@
     }
   ],
 
-  // GitHub Actions の with: で渡すツールのバージョンを Renovate に追従させる custom manager。
-  // 公式 preset (githubActionsVersions) は XXX_VERSION 形式の環境変数しか見ず、
-  // with: version: を拾えないため、ここで補う。
+  // GitHub Actions の `with: version:` で渡すツールのバージョンを Renovate に追従させる custom manager。
+  // 公式 preset (githubActionsVersions) は XXX_VERSION 形式の env 行しか拾わず `with: version:` には効かないため、
+  // その preset と同じ「`# renovate:` コメントを目印にする」流儀を `version:` 行向けに最小改変したもの。
+  //   - 公式 preset 一覧:       https://docs.renovatebot.com/presets-customManagers/
+  //   - regex manager の使い方: https://docs.renovatebot.com/modules/manager/regex/
+  //
+  // 使い方: 追従したい `version:` の直上に `# renovate:` コメントを 1 行置く (datasource/depName は公式 preset と同形)。
+  //   - uses: 1password/load-secrets-action@<sha> # v4
+  //     with:
+  //       # renovate: datasource=docker depName=1password/op versioning=semver
+  //       version: "2.34.0"   # op CLI 本体。zizmor (unpinned-tools) 対策でリテラル固定
+  //     env:
+  //       OP_SERVICE_ACCOUNT_TOKEN: ${{ ... }}
+  //
+  // コメントを目印にするので、step の並び順 (env: が先など) や他 input の有無に依存せず、
+  // marker の無い他 step の version: を誤検出することもない。datasource/depName は各 caller のコメント側で指定する。
+  // 上の例では op バイナリは従来どおり 1Password CDN から DL され、Docker タグ (1password/op) は
+  // 「どの版が存在するか」を Renovate に教える version oracle として使う。
   "customManagers": [
     {
-      // 1password/load-secrets-action の version: は op CLI 本体のバージョン。
-      // zizmor (unpinned-tools) 対策で値を固定しているが、そのままだと Renovate が更新できず古くなる。
-      // そこで公式 1password/op の Docker タグ (= op のリリース) を datasource にして新しい semver を追従する。
-      // マッチ対象は 1password step 内の version: だけ (他 step の version: は拾わない)。
-      "description": "Track the op CLI version pinned on 1password/load-secrets-action (kept literal for zizmor unpinned-tools), sourced from the official 1password/op Docker Hub tags",
+      "description": "Track tool versions pinned via `with: version:` in workflows, anchored on a `# renovate:` annotation (same convention as the githubActionsVersions preset, adapted for `version:` instead of *_VERSION env vars)",
       "customType": "regex",
       "managerFilePatterns": ["/(^|/)\\.github/workflows/[^/]+\\.yaml$/"],
       "matchStrings": [
-        "1password/load-secrets-action@\\S+[^\\n]*\\s+with:(?:\\s*#[^\\n]*)*\\s+version:\\s*[\"']?(?<currentValue>[^\"'\\s]+)[\"']?"
-      ],
-      "datasourceTemplate": "docker",
-      "depNameTemplate": "1password/op",
-      "versioningTemplate": "semver"
+        "# renovate: datasource=(?<datasource>[a-zA-Z0-9-._]+?) depName=(?<depName>[^\\s]+?)(?: versioning=(?<versioning>[^\\s]+?))?\\s+version:\\s*[\"']?(?<currentValue>[^\"'\\s]+)[\"']?"
+      ]
     }
   ],
 
