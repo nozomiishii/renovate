@@ -128,6 +128,27 @@
     }
   ],
 
+  // GitHub Actions の action input に埋め込んだツールバージョンを追従する custom manager。
+  // 公式 customManagers:githubActionsVersions preset は `<KEY>_VERSION:` env 行しか拾えず
+  // `with: version:` には効かないため、ここで補完する。
+  "customManagers": [
+    {
+      // 1password/load-secrets-action の version: は op CLI 本体のバージョン。zizmor unpinned-tools
+      // 用にリテラル pin しているが、放置すると op CLI だけ renovate に追従されず rot する。公式
+      // 1password/op の Docker タグ (clean semver) を datasource にして semver 追従させる。version: が
+      // 1password step の with: 直下 (コメント行のみ挟む) にある時だけマッチし、他 step の version: は誤検出しない。
+      "description": "Track the op CLI version pinned on 1password/load-secrets-action (kept literal for zizmor unpinned-tools), sourced from the official 1password/op Docker Hub tags",
+      "customType": "regex",
+      "managerFilePatterns": ["/(^|/)\\.github/workflows/[^/]+\\.yaml$/"],
+      "matchStrings": [
+        "1password/load-secrets-action@\\S+[^\\n]*\\s+with:(?:\\s*#[^\\n]*)*\\s+version:\\s*[\"']?(?<currentValue>[^\"'\\s]+)[\"']?"
+      ],
+      "datasourceTemplate": "docker",
+      "depNameTemplate": "1password/op",
+      "versioningTemplate": "semver"
+    }
+  ],
+
   // 更新後に lockfile を自動 dedupe (pnpm dedupe / npm dedupe)
   "postUpdateOptions": ["pnpmDedupe", "npmDedupe"],
 
