@@ -4,24 +4,22 @@
 # pnpm config list
 # ```
 
-# install スクリプトのポリシー: 実際に build/postinstall が動作に必要なら true、
-# 不要・別経路で代替できるなら false。
-# コメント形式: # <package.json 依存 → ... → 自身までの全経路> | <用途>
+# 依存パッケージのライフサイクルスクリプトの許可リスト
 allowBuilds:
-  lefthook: false # lefthook | フック登録は @nozomiishii/postinstall 経由で行うため不要
+  lefthook: false
   better-sqlite3: true # renovate → better-sqlite3 | リポジトリキャッシュに使用
   core-js-pure: true # renovate → @qnighy/marshal → @babel/runtime-corejs3 → core-js-pure | polyfill
   dtrace-provider: false # renovate → bunyan → dtrace-provider | macOS/Solaris の DTrace 連携用 optional 機能。失敗時は no-op fallback で動作するため build 不要
   protobufjs: true # renovate → protobufjs | OTLP 出力で使用
   re2: true # renovate → re2 | RE2 regex engine
 
-# 依存解決のうまくいっていないdependenciesのdependenciesをrootのnode_modulesまで巻き上げる
+# transitive dependencyをrootのnode_modulesまで巻き上げる
 publicHoistPattern:
   - "@types/*"
   - "*eslint*"
   - "*prettier*"
 
-# minimumReleaseAge は新しく公開された版を一定期間 install させない pnpm の安全機構。自前パッケージは待たず即取り込みたいので除外する。
+# 自前パッケージは待たず即取り込みたいので除外する。
 minimumReleaseAgeExclude:
   - "@nozomiishii/*"
   - git-harvest
