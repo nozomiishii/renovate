@@ -2,10 +2,6 @@
 
 このリポジトリで Claude Code (claude.ai/code) が作業する際のガイドラインです。
 
-## Git・GitHub 運用ルール
-
-- PR タイトルは英語 semantic 形式で、CI の semantic pull request チェックに従う。詳細は [.github/workflows/_pull-request.yaml](.github/workflows/_pull-request.yaml) を参照。
-
 ## アーキテクチャ概要
 
 `renovate` は Renovate Bot の共有設定パッケージです。エントリポイントは `default.json`（`extends` や best practices を組み合わせた主設定）。
