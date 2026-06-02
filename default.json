@@ -128,19 +128,23 @@
     }
   ],
 
-  // `with: version:` で固定したツールのバージョンを Renovate に追従させる custom manager。
-  // 追従したい version: の直上に、公式 preset と同形の `# renovate:` コメントを 1 行置くだけ:
-  //   with:
+  // 追従したい値の直上に `# renovate:` コメントを置くと version を Renovate が追従する。
+  //   workflows の `with: version:`
   //     # renovate: datasource=docker depName=1password/op versioning=semver
   //     version: "2.34.0"
-  // コメントが目印なので step の並び順や他 input の有無に左右されず、他 step の version: も誤検出しない。
+  //   lefthook.yaml の `bunx <pkg>@<version>` (node_modules を作らない非 Node repo 用)
+  //     # renovate: datasource=npm depName=@nozomiishii/commitlint-config
+  //     run: bunx -p @nozomiishii/commitlint-config@1.5.0 nozo-commitlint --edit {1}
   "customManagers": [
     {
-      "description": "Track tool versions pinned via `with: version:` in workflows, anchored on a `# renovate:` annotation (same convention as the githubActionsVersions preset, adapted for `version:` instead of *_VERSION env vars)",
+      "description": "Track versions anchored on a `# renovate:` comment: `version:` in workflows and `bunx <pkg>@<version>` in lefthook.yaml.",
       "customType": "regex",
-      "managerFilePatterns": ["/(^|/)\\.github/workflows/[^/]+\\.yaml$/"],
+      "managerFilePatterns": [
+        "/(^|/)\\.github/workflows/[^/]+\\.yaml$/",
+        "/(^|/)lefthook\\.ya?ml$/"
+      ],
       "matchStrings": [
-        "# renovate: datasource=(?<datasource>[a-zA-Z0-9-._]+?) depName=(?<depName>[^\\s]+?)(?: versioning=(?<versioning>[^\\s]+?))?\\s+version:\\s*[\"']?(?<currentValue>[^\"'\\s]+)[\"']?"
+        "# renovate: datasource=(?<datasource>[a-zA-Z0-9-._]+?) depName=(?<depName>[^\\s]+?)(?: versioning=(?<versioning>[^\\s]+?))?\\s+(?:version:\\s*[\"']?|run:[^\\n]*@)(?<currentValue>[^\"'\\s]+)"
       ]
     }
   ],
