@@ -128,10 +128,7 @@
     }
   ],
 
-  // `# renovate:` アンカーで固定したツールのバージョンを Renovate に追従させる custom manager。
-  // 追従したい値の直上に、公式 preset と同形の `# renovate:` コメントを 1 行置くだけ。
-  // コメントが目印なので並び順や他 input に左右されず、無関係な version: / @バージョン を誤検出しない。
-  // 対応する2形:
+  // 追従したい値の直上に `# renovate:` コメントを置くと version を Renovate が追従する。
   //   workflows の `with: version:`
   //     # renovate: datasource=docker depName=1password/op versioning=semver
   //     version: "2.34.0"
@@ -140,7 +137,7 @@
   //     run: bunx -p @nozomiishii/commitlint-config@1.5.0 nozo-commitlint --edit {1}
   "customManagers": [
     {
-      "description": "Track tool versions anchored on a `# renovate:` annotation (same convention as the githubActionsVersions preset). Covers `with: version:` in workflows and `bunx <pkg>@<version>` run commands in lefthook.yaml (non-Node repos pin shared CLIs via bunx instead of node_modules).",
+      "description": "Track versions anchored on a `# renovate:` comment: `version:` in workflows and `bunx <pkg>@<version>` in lefthook.yaml.",
       "customType": "regex",
       "managerFilePatterns": [
         "/(^|/)\\.github/workflows/[^/]+\\.yaml$/",
