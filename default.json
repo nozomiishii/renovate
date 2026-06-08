@@ -115,6 +115,20 @@
       "rangeStrategy": "bump"
     },
 
+    // OpenTofu の required_version 追従。
+    // terraform manager は .tf の required_version を hashicorp/terraform (Terraform の github releases) で
+    // 追う仕様で depName が固定のため、OpenTofu repo では存在しない Terraform 版が required_version に
+    // 流し込まれる事故が起きる (nozomiishii/infra で 1.12.1 → 1.15.5 に上げられ tofu init が弾かれた)。
+    // overridePackageName で packageName を opentofu/opentofu にリダイレクトし OpenTofu の release を追わせる。
+    // 除外でなくリダイレクトなので新版への自動追従も維持される。
+    // required_version depType を持たない repo (Node 系等) では何もマッチせず無害。
+    // https://github.com/nozomiishii/renovate/issues/712
+    {
+      "matchDepTypes": ["required_version"],
+      "matchDepNames": ["hashicorp/terraform"],
+      "overridePackageName": "opentofu/opentofu"
+    },
+
     // 自前 (nozomiishii/*) パッケージは top-level minimumReleaseAge が
     // 課す 3 日待ちを解除して即時取り込みする。
     // git-harvest / pm は scope なしで公開している自前パッケージなので明示列挙。
