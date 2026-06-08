@@ -115,6 +115,14 @@
       "rangeStrategy": "bump"
     },
 
+    // OpenTofu の required_version 追従。
+    // https://github.com/nozomiishii/renovate/issues/712
+    {
+      "matchDepTypes": ["required_version"],
+      "matchDepNames": ["hashicorp/terraform"],
+      "overridePackageName": "opentofu/opentofu"
+    },
+
     // 自前 (nozomiishii/*) パッケージは top-level minimumReleaseAge が
     // 課す 3 日待ちを解除して即時取り込みする。
     // git-harvest / pm は scope なしで公開している自前パッケージなので明示列挙。
