@@ -136,23 +136,30 @@
     }
   ],
 
-  // 追従したい値の直上に `# renovate:` コメントを置くと version を Renovate が追従する。
-  //   workflows の `with: version:`
-  //     # renovate: datasource=docker depName=1password/op versioning=semver
-  //     version: "2.34.0"
-  //   lefthook.yaml の `bunx <pkg>@<version>` (node_modules を作らない非 Node repo 用)
-  //     # renovate: datasource=npm depName=@nozomiishii/commitlint-config
-  //     run: bunx -p @nozomiishii/commitlint-config@1.5.0 nozo-commitlint --edit {1}
   "customManagers": [
+    // workflows の `with:` 配下などの `version` / `*_version` key を追従。
+    //   # renovate: datasource=docker depName=1password/op versioning=semver
+    //   version: "2.34.0"
+    //   # renovate: datasource=github-releases depName=opentofu/opentofu
+    //   tofu_version: 1.12.1
     {
-      "description": "Track versions anchored on a `# renovate:` comment: `version:` in workflows and `bunx <pkg>@<version>` in lefthook.yaml.",
+      "description": "Track versions anchored on a `# renovate:` comment: `version` / `*_version` keys in GitHub Actions workflows.",
       "customType": "regex",
-      "managerFilePatterns": [
-        "/(^|/)\\.github/workflows/[^/]+\\.yaml$/",
-        "/(^|/)lefthook\\.ya?ml$/"
-      ],
+      "managerFilePatterns": ["/(^|/)\\.github/workflows/[^/]+\\.yaml$/"],
       "matchStrings": [
-        "# renovate: datasource=(?<datasource>[a-zA-Z0-9-._]+?) depName=(?<depName>[^\\s]+?)(?: versioning=(?<versioning>[^\\s]+?))?\\s+(?:version:\\s*[\"']?|run:[^\\n]*@)(?<currentValue>[^\"'\\s]+)"
+        "# renovate: datasource=(?<datasource>[a-zA-Z0-9-._]+?) depName=(?<depName>[^\\s]+?)(?: versioning=(?<versioning>[^\\s]+?))?\\s+[A-Za-z0-9_-]*[Vv][Ee][Rr][Ss][Ii][Oo][Nn]:\\s*[\"']?(?<currentValue>[^\"'\\s]+)"
+      ]
+    },
+    // lefthook.yaml の `bunx <pkg>@<version>` を追従。
+    // node_modules を作らない非 Node repo 用。
+    //   # renovate: datasource=npm depName=@nozomiishii/commitlint-config
+    //   run: bunx -p @nozomiishii/commitlint-config@1.5.0 nozo-commitlint --edit {1}
+    {
+      "description": "Track versions anchored on a `# renovate:` comment: `bunx <pkg>@<version>` in lefthook.yaml.",
+      "customType": "regex",
+      "managerFilePatterns": ["/(^|/)lefthook\\.ya?ml$/"],
+      "matchStrings": [
+        "# renovate: datasource=(?<datasource>[a-zA-Z0-9-._]+?) depName=(?<depName>[^\\s]+?)(?: versioning=(?<versioning>[^\\s]+?))?\\s+run:[^\\n]*@(?<currentValue>[^\"'\\s]+)"
       ]
     }
   ],
