@@ -109,12 +109,13 @@
       "groupName": "artifact"
     },
 
-    // engines.node (npm manager) と devEngines.runtime.version (customManager) を
-    // 同一 PR にまとめて Node.js バージョンの乖離を防ぐ
+    // engines.node は Vercel 等の対応状況に合わせて手動管理するため、
+    // rangeStrategy を auto にして範囲指定 (>=24) のピン化を防ぐ。
+    // ピン済み (24.17.0) の repo ではそのまま更新される
     {
+      "matchDepTypes": ["engines"],
       "matchDepNames": ["node"],
-      "matchDatasources": ["node-version"],
-      "groupName": "node"
+      "rangeStrategy": "auto"
     },
 
     // peerDeps はライブラリ互換性維持のため pin せず範囲を bump
