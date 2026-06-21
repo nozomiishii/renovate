@@ -150,6 +150,21 @@
         "# renovate: datasource=(?<datasource>[a-zA-Z0-9-._]+?) depName=(?<depName>[^\\s]+?)(?: versioning=(?<versioning>[^\\s]+?))?\\s+[A-Za-z0-9_-]*[Vv][Ee][Rr][Ss][Ii][Oo][Nn]:\\s*[\"']?(?<currentValue>[^\"'\\s]+)"
       ]
     },
+    // devEngines.runtime の Node.js バージョンを追従。
+    // npm manager のネイティブ対応が来たら撤去:
+    // https://github.com/renovatebot/renovate/pull/43369
+    // https://github.com/renovatebot/renovate/issues/38067
+    {
+      "description": "Track devEngines.runtime Node.js version in package.json.",
+      "customType": "regex",
+      "managerFilePatterns": ["(^|/)package\\.json$"],
+      "matchStrings": [
+        "\"devEngines\"\\s*:\\s*\\{\\s*\"runtime\"\\s*:\\s*\\{\\s*\"name\"\\s*:\\s*\"node\"\\s*,\\s*\"version\"\\s*:\\s*\"(?<currentValue>[^\"]+)\""
+      ],
+      "depNameTemplate": "node",
+      "datasourceTemplate": "node-version",
+      "versioningTemplate": "node"
+    },
     // lefthook.yaml の `bunx <pkg>@<version>` を追従。
     // node_modules を作らない非 Node repo 用。
     //   # renovate: datasource=npm depName=@nozomiishii/commitlint-config
