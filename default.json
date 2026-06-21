@@ -109,6 +109,14 @@
       "groupName": "artifact"
     },
 
+    // engines.node (npm manager) と devEngines.runtime.version (customManager) を
+    // 同一 PR にまとめて Node.js バージョンの乖離を防ぐ
+    {
+      "matchDepNames": ["node"],
+      "matchDatasources": ["node-version"],
+      "groupName": "node"
+    },
+
     // peerDeps はライブラリ互換性維持のため pin せず範囲を bump
     {
       "matchDepTypes": ["peerDependencies"],
@@ -157,7 +165,7 @@
     {
       "description": "Track devEngines.runtime Node.js version in package.json.",
       "customType": "regex",
-      "managerFilePatterns": ["(^|/)package\\.json$"],
+      "managerFilePatterns": ["/(^|/)package\\.json$/"],
       "matchStrings": [
         "\"devEngines\"\\s*:\\s*\\{\\s*\"runtime\"\\s*:\\s*\\{\\s*\"name\"\\s*:\\s*\"node\"\\s*,\\s*\"version\"\\s*:\\s*\"(?<currentValue>[^\"]+)\""
       ],
