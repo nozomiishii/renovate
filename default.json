@@ -49,12 +49,6 @@
     "automerge": false
   },
 
-  // GitHub native auto-merge は branch ruleset の required に登録された check しか待たないので、
-  // false にして Renovate worker 側で PR の全 status check / check run を gate にする。
-  // 代償: マージは次回 Renovate run まで遅延。
-  // https://docs.renovatebot.com/key-concepts/automerge/
-  "platformAutomerge": false,
-
   // security:minimumReleaseAgeNpm の 3 日待ちを全 datasource に拡張する。値は公式判断 (3 日) を踏襲。
   // enforce 対象は major/minor/patch のみ。lockFileMaintenance や pin/replacement 等は対象外
   // (ただし lockFileMaintenance だけは stability-days を post してくるため下記で抑止)。
@@ -63,8 +57,7 @@
   "minimumReleaseAge": "3 days",
 
   // lockFileMaintenance は minimumReleaseAge を enforce しないが、グローバル設定があると
-  // `renovate/stability-days` が永遠 PENDING で post され、platformAutomerge: false の
-  // worker による automerge を恒久 block する。null override で該当 PR の check 自体を抑止。
+  // `renovate/stability-days` が永遠 PENDING で post される。null override で抑止。
   "lockFileMaintenance": {
     "statusCheckNames": {
       "minimumReleaseAge": null
@@ -132,6 +125,14 @@
       "overridePackageName": "opentofu/opentofu"
     },
 
+    // pnpmDedupe は npm パッケージ更新時のみ実行する。
+    // トップレベルだと GitHub Actions 等の非 npm ブランチでも走り
+    // OOM / タイムアウトでフルスキャンを落とす (renovatebot/renovate#42207)
+    {
+      "matchDatasources": ["npm"],
+      "postUpdateOptions": ["pnpmDedupe"]
+    },
+
     // 自前 (nozomiishii/*) パッケージは top-level minimumReleaseAge が
     // 課す 3 日待ちを解除して即時取り込みする。
     // git-harvest / pm は scope なしで公開している自前パッケージなので明示列挙。
@@ -188,8 +189,11 @@
     }
   ],
 
-  // 更新後に lockfile を自動 dedupe (pnpm dedupe / npm dedupe)
-  "postUpdateOptions": ["pnpmDedupe", "npmDedupe"],
+  // 更新後に lockfile を自動 dedupe
+  // pnpmDedupe は npm datasource の packageRules にスコープ。
+  // トップレベルに置くと GitHub Actions 等の非 npm ブランチでも無条件実行され
+  // OOM / タイムアウトの原因になる (renovatebot/renovate#42207)
+  "postUpdateOptions": ["npmDedupe"],
 
   // git submodule の ref 更新を追従対象にする (デフォルト false)
   "git-submodules": {
