@@ -188,11 +188,11 @@
     }
   ],
 
-  // npm 更新時に lockfile を自動 dedupe (npm repos 用)。
-  // pnpmDedupe は意図的に除外: pnpm v11 の pnpm dedupe が
-  // 3GB 超のメモリを消費し Mend Community プランの制限で OOM kill される。
+  // pnpmDedupe / npmDedupe は意図的に除外。
+  // pnpm v11 の pnpm dedupe が 3GB 超のメモリを消費し
+  // Mend Community プランの 3GB 制限で kernel OOM kill される。
   // https://github.com/renovatebot/renovate/discussions/40942
-  "postUpdateOptions": ["npmDedupe"],
+  "postUpdateOptions": [],
 
   // git submodule の ref 更新を追従対象にする (デフォルト false)
   "git-submodules": {
