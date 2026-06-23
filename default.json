@@ -188,11 +188,11 @@
     }
   ],
 
-  // pnpmDedupe / npmDedupe は意図的に除外。
+  // pnpmDedupe / npmDedupe は意図的に無効化。
   // pnpm v11 の pnpm dedupe が 3GB 超のメモリを消費し
   // Mend Community プランの 3GB 制限で kernel OOM kill される。
   // https://github.com/renovatebot/renovate/discussions/40942
-  "postUpdateOptions": [],
+  // "postUpdateOptions": ["pnpmDedupe", "npmDedupe"],
 
   // git submodule の ref 更新を追従対象にする (デフォルト false)
   "git-submodules": {
