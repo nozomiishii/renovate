@@ -125,14 +125,6 @@
       "overridePackageName": "opentofu/opentofu"
     },
 
-    // pnpmDedupe は npm パッケージ更新時のみ実行する。
-    // トップレベルだと GitHub Actions 等の非 npm ブランチでも走り
-    // OOM / タイムアウトでフルスキャンを落とす (renovatebot/renovate#42207)
-    {
-      "matchDatasources": ["npm"],
-      "postUpdateOptions": ["pnpmDedupe"]
-    },
-
     // 自前 (nozomiishii/*) パッケージは top-level minimumReleaseAge が
     // 課す 3 日待ちを解除して即時取り込みする。
     // git-harvest / pm は scope なしで公開している自前パッケージなので明示列挙。
@@ -196,11 +188,11 @@
     }
   ],
 
-  // 更新後に lockfile を自動 dedupe
-  // pnpmDedupe は npm datasource の packageRules にスコープ。
-  // トップレベルに置くと GitHub Actions 等の非 npm ブランチでも無条件実行され
-  // OOM / タイムアウトの原因になる (renovatebot/renovate#42207)
-  "postUpdateOptions": ["npmDedupe"],
+  // pnpmDedupe / npmDedupe は意図的に無効化。
+  // pnpm v11 の pnpm dedupe が 3GB 超のメモリを消費し
+  // Mend Community プランの 3GB 制限で kernel OOM kill される。
+  // https://github.com/renovatebot/renovate/discussions/40942
+  // "postUpdateOptions": ["pnpmDedupe", "npmDedupe"],
 
   // git submodule の ref 更新を追従対象にする (デフォルト false)
   "git-submodules": {
