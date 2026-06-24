@@ -9,6 +9,8 @@
 # - https://github.com/pnpm/pnpm/issues/8441
 #
 # 上流で解決されたらこのワークフローを削除し Mend-hosted に戻す。
+# 削除時は監視ルーティンも一緒に消す:
+# https://claude.ai/code/routines/trig_01FcwuSkDR2RQBoy2Z9RBi9h
 
 name: Self-hosted Renovate
 
