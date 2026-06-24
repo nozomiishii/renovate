@@ -10,7 +10,7 @@
 #
 # 上流で解決されたらこのワークフローを削除し Mend-hosted に戻す。
 
-name: Renovate
+name: Self-hosted Renovate
 
 on:
   schedule:
