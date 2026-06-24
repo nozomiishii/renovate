@@ -14,8 +14,8 @@ name: Self-hosted Renovate
 
 on:
   schedule:
-    # 毎週金曜 05:00 JST (木曜 20:00 UTC)
-    - cron: "0 20 * * 4"
+    # 毎日 05:00 JST (前日 20:00 UTC)
+    - cron: "0 20 * * *"
   workflow_dispatch:
 
 concurrency:
