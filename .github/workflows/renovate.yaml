@@ -1,0 +1,48 @@
+# Self-hosted Renovate (Mend Community プランの 3GB メモリ制限で OOM するため)
+#
+# pnpm v11 の pnpm install --lockfile-only が 2GB+ のメモリを消費し、
+# Mend-hosted の microVM (3GB) では kernel OOM kill される。
+# GitHub Actions ランナー (7GB) なら余裕で収まる。
+#
+# Mend 側の対応状況:
+# - https://github.com/renovatebot/renovate/discussions/40942
+# - https://github.com/pnpm/pnpm/issues/8441
+#
+# 上流で解決されたらこのワークフローを削除し Mend-hosted に戻す。
+
+name: Renovate
+
+on:
+  schedule:
+    # 毎週金曜 05:00 JST (木曜 20:00 UTC)
+    - cron: "0 20 * * 4"
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  renovate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Load secrets
+        id: op-load-secret
+        uses: 1password/load-secrets-action@3a12b0ab99d9cd590a3e9b5a90ea017210ed9556 # v4.0.1
+        with:
+          # renovate: datasource=docker depName=1password/op versioning=semver
+          version: "2.34.1"
+        env:
+          OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
+          RENOVATE_TOKEN: op://dev/renovate/GITHUB_TOKEN
+
+      - name: Run Renovate
+        uses: renovatebot/github-action@6d859fc95779be83a0335ca704879b47e5d79641 # v46.1.16
+        with:
+          token: ${{ steps.op-load-secret.outputs.RENOVATE_TOKEN }}
+        env:
+          RENOVATE_REPOSITORIES: nozomiishii/dev
