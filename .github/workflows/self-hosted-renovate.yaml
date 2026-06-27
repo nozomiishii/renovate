@@ -48,3 +48,6 @@ jobs:
           token: ${{ steps.op-load-secret.outputs.RENOVATE_TOKEN }}
         env:
           RENOVATE_REPOSITORIES: nozomiishii/dev
+          # 全更新を 1 PR にまとめる。個別 PR だと lockfile コンフリクトが連鎖して滞留するため。
+          # 一部パッケージが別グループになる場合はアプローチ 2 (force.packageRules 置換) へ切り替える。
+          RENOVATE_FORCE: '{"groupName":"all dependencies","groupSlug":"all","separateMajorMinor":false}'
