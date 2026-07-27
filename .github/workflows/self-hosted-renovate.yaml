@@ -47,5 +47,4 @@ jobs:
         with:
           token: ${{ steps.op-load-secret.outputs.RENOVATE_TOKEN }}
         env:
-          # メジャー以外の一括グループ化は default.json の all-minor-patch ルールで恒久化済み
           RENOVATE_REPOSITORIES: nozomiishii/dev
