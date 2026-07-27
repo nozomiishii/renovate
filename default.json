@@ -82,7 +82,8 @@
       "schedule": ["before 9am on Monday"]
     },
 
-    // 関連パッケージのグルーピング (個別 PR 乱立を防ぐ)
+    // 関連パッケージのグルーピング。
+    // minor / patch は末尾の all-minor-patch グループに吸収されるため、実効は major のみ
     {
       "groupName": "figma-export",
       "matchPackageNames": ["/figma-export/"]
@@ -128,13 +129,24 @@
     // 自前 (nozomiishii/*) パッケージは top-level minimumReleaseAge が
     // 課す 3 日待ちを解除して即時取り込みする。
     // git-harvest / pm は scope なしで公開している自前パッケージなので明示列挙。
-    // packageRules は後方のルールほど優先されるので必ず最後に配置
+    // packageRules は後方のルールほど優先されるので他のグループ系ルールより後ろに配置
     // https://docs.renovatebot.com/configuration-options/#packagerules
     {
       "description": "Opt nozomiishii self-managed packages out of the minimumReleaseAge delay",
       "groupName": "nozomiishii",
       "minimumReleaseAge": null,
       "matchPackageNames": ["/nozomiishii/", "git-harvest", "pm"]
+    },
+
+    // メジャー以外 (minor / patch / digest) は全部 1 PR に一括更新する。
+    // group:allNonMajor 相当。前方の全グループ (storybook / nozomiishii 等) の
+    // groupName を上書きして一括に吸収するため、preset ではなく最後のルールとして定義。
+    // https://docs.renovatebot.com/presets-group/#groupallnonmajor
+    {
+      "description": "Group all non-major updates into a single PR",
+      "groupName": "all non-major dependencies",
+      "groupSlug": "all-minor-patch",
+      "matchUpdateTypes": ["digest", "patch", "minor"]
     }
   ],
 
