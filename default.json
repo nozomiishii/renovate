@@ -139,7 +139,6 @@
     },
 
     // メジャー以外 (minor / patch / digest) は全部 1 PR に一括更新する。
-    // 個別 PR だと lockfile コンフリクトが連鎖して滞留するため。
     // group:allNonMajor 相当。前方の全グループ (storybook / nozomiishii 等) の
     // groupName を上書きして一括に吸収するため、preset ではなく最後のルールとして定義。
     // https://docs.renovatebot.com/presets-group/#groupallnonmajor
