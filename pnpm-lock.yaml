@@ -27,8 +27,8 @@ importers:
         specifier: 2.1.10
         version: 2.1.10
       renovate:
-        specifier: 44.4.3
-        version: 44.4.3(supports-color@7.2.0)(typanion@3.14.0)
+        specifier: 44.5.0
+        version: 44.5.0(supports-color@7.2.0)(typanion@3.14.0)
 
 packages:
 
@@ -1516,8 +1516,8 @@ packages:
     resolution: {integrity: sha512-NLvV9ubZ6NDsJaOpKPy3cQeJpKi9DcWiyCiFUpJPA0YihRqiE6RWaLUmgNNPr8MgPpLZjnBjSmou7uZBRJv9wA==}
     engines: {node: '>=20'}
 
-  google-auth-library@10.9.0:
-    resolution: {integrity: sha512-xtvUqvINPhTaBm7nXqlYPcrMHJPm1lCNdSovxnKKhTm+4JsvQ+KGVYJViLoH9Yxu8w+T0Qv5HubzYT9BLrppJg==}
+  google-auth-library@10.9.1:
+    resolution: {integrity: sha512-i1ydyHrqcIxXkWh/uBmVkzCvIuq5yiK2ATndIe5XxKholrG/MTYP9xGYka4sQhrbIAgGjL2B6NOE7rFaiF3fXw==}
     engines: {node: '>=18'}
 
   google-logging-utils@1.1.3:
@@ -2386,8 +2386,8 @@ packages:
   remark@15.0.1:
     resolution: {integrity: sha512-Eht5w30ruCXgFmxVUSlNWQ9iiimq07URKeFS3hNc8cUWy1llX4KDWfyEDZRycMc+znsN9Ux5/tJ/BFdgdOwA3A==}
 
-  renovate@44.4.3:
-    resolution: {integrity: sha512-v1RIjmrTnAQdq9BqLwvB/++m31UGHtBEmIJ2kYQqzqv2XTkdreLrDTnTftgFjB+a8ajOlcn5TMIKUzIiBxApVA==}
+  renovate@44.5.0:
+    resolution: {integrity: sha512-Jmn0Nx3FwtqdduFCXFGhCFpaDBDJAaD73yee+WT/7hLyrFp1oiyFl2QBxyrHleCGr0nsuI8mYnejL96mi4UT2w==}
     engines: {node: ^24.11.0, pnpm: ^11.0.0}
     hasBin: true
 
@@ -4580,7 +4580,7 @@ snapshots:
       slash: 5.1.0
       unicorn-magic: 0.4.0
 
-  google-auth-library@10.9.0(supports-color@7.2.0):
+  google-auth-library@10.9.1(supports-color@7.2.0):
     dependencies:
       base64-js: 1.5.1
       ecdsa-sig-formatter: 1.0.11
@@ -5629,7 +5629,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  renovate@44.4.3(supports-color@7.2.0)(typanion@3.14.0):
+  renovate@44.5.0(supports-color@7.2.0)(typanion@3.14.0):
     dependencies:
       '@aws-sdk/client-codecommit': 3.1075.0
       '@aws-sdk/client-ec2': 3.1075.0
@@ -5699,7 +5699,7 @@ snapshots:
       github-url-from-git: 1.5.0
       glob: 13.0.6
       global-agent: 3.0.0
-      google-auth-library: 10.9.0(supports-color@7.2.0)
+      google-auth-library: 10.9.1(supports-color@7.2.0)
       got: 14.6.6
       graph-data-structure: 4.5.0
       handlebars: 4.7.9
