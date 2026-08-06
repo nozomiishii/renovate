@@ -34,11 +34,11 @@
     "@nozomiishii/postinstall": "1.13.0",
     "@nozomiishii/prettier-config": "1.13.0",
     "lefthook": "2.1.10",
-    "renovate": "44.5.0"
+    "renovate": "44.7.2"
   },
   "packageManager": "pnpm@11.19.0",
   "engines": {
-    "node": "24.18.1"
+    "node": "24.19.0"
   },
   "publishConfig": {
     "access": "public"
