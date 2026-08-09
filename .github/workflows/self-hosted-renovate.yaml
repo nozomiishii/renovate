@@ -1,23 +1,22 @@
-# Self-hosted Renovate (Mend Community プランの 3GB メモリ制限で OOM するため)
+# Self-hosted Renovate (Mend-hosted への切り戻しを検証中のため定期実行は停止)
 #
 # pnpm v11 の pnpm install --lockfile-only が 2GB+ のメモリを消費し、
-# Mend-hosted の microVM (3GB) では kernel OOM kill される。
+# Mend-hosted の microVM (3GB) では kernel OOM kill されるため用意したワークフロー。
 # GitHub Actions ランナー (7GB) なら余裕で収まる。
 #
-# Mend 側の対応状況:
+# pnpm 側で修正済み:
+# - https://github.com/pnpm/pnpm/issues/8441 (pnpm v11.15.1 で解消)
+# - https://github.com/pnpm/pnpm/pull/13133
 # - https://github.com/renovatebot/renovate/discussions/40942
-# - https://github.com/pnpm/pnpm/issues/8441
 #
-# 上流で解決されたらこのワークフローを削除し Mend-hosted に戻す。
+# そのため Mend-hosted へ戻せるか検証中。schedule を外して手動実行 (workflow_dispatch) のみ残す。
+# 問題なければこのワークフローごと削除する。
 # 削除時は監視ルーティンも一緒に消す:
 # https://claude.ai/code/routines/trig_01FcwuSkDR2RQBoy2Z9RBi9h
 
 name: Self-hosted Renovate
 
 on:
-  schedule:
-    # 毎日 05:00 JST (前日 20:00 UTC)
-    - cron: "0 20 * * *"
   workflow_dispatch:
 
 concurrency:
