@@ -75,6 +75,14 @@
     "enabled": true
   },
 
+  // Mend Community の 3GB microVM で Node が上限を突き抜けて kernel OOM kill されるのを防ぐ。
+  // 値は Mend 推奨レンジ (1.5-2.5GB) の上限。
+  // https://docs.renovatebot.com/mend-hosted/faq/
+  // https://github.com/renovatebot/renovate/discussions/40942
+  "toolSettings": {
+    "nodeMaxMemory": 2560
+  },
+
   "packageRules": [
     // renovate 本体の更新は頻度が高いので週 1 に絞る
     {
