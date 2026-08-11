@@ -45,7 +45,7 @@ echo '{ "extends": ["github>nozomiishii/renovate"] }' > .github/renovate.json
 
 Configure your GitHub repository to enable vulnerabilityAlerts.
 
-- https://docs.renovatebot.com/configuration-options/#vulnerabilityalerts
+- <https://docs.renovatebot.com/configuration-options/#vulnerabilityalerts>
 
 ```bash
 gh repo list \

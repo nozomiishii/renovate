@@ -45,7 +45,7 @@ echo '{ "extends": ["github>nozomiishii/renovate"] }' > .github/renovate.json
 
 vulnerabilityAlertsを使えるようにgithubのレポジトリを設定する
 
-- https://docs.renovatebot.com/configuration-options/#vulnerabilityalerts
+- <https://docs.renovatebot.com/configuration-options/#vulnerabilityalerts>
 
 ```bash
 gh repo list \
