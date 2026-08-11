@@ -134,6 +134,16 @@
       "overridePackageName": "opentofu/opentofu"
     },
 
+    // `# renovate:` コメント追跡の docker 依存 (1password/op 等) は digest を書く場所がなく、
+    // docker:pinDigests が毎回 update-failure になるため digest pin だけ外す。
+    // 経緯: docs/decisions/regex custom manager の docker 依存は digest pin しない.md
+    {
+      "description": "Skip digest pinning for custom regex manager deps: no place to write a digest",
+      "matchManagers": ["custom.regex"],
+      "matchDatasources": ["docker"],
+      "pinDigests": false
+    },
+
     // 自前 (nozomiishii/*) パッケージは top-level minimumReleaseAge が
     // 課す 3 日待ちを解除して即時取り込みする。
     // git-harvest / pm は scope なしで公開している自前パッケージなので明示列挙。
