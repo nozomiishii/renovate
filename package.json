@@ -23,7 +23,7 @@
   "scripts": {
     "format": "pnpm prettier . --check",
     "format:fix": "pnpm prettier . --write",
-    "postinstall": "postinstall",
+    "postinstall": "postinstall && node scripts/setup-vscode.mjs",
     "prettier": "prettier --ignore-unknown --cache",
     "validate": "renovate-config-validator --strict default.json"
   },
