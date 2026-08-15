@@ -142,6 +142,16 @@
       "overridePackageName": "opentofu/opentofu"
     },
 
+    // OpenTofu の major は mise.toml (mise manager) と required_version (terraform manager) が
+    // manager ごとに別 PR に分かれるため 1 PR にまとめる。非メジャーは末尾の all-minor-patch が吸収する。
+    // 経緯: infra の docs/decisions/OpenTofu の版は mise.toml と required_version の二重ピンにする.md
+    {
+      "description": "Group opentofu major updates across managers into a single PR",
+      "groupName": "opentofu",
+      "matchPackageNames": ["opentofu/opentofu"],
+      "matchUpdateTypes": ["major"]
+    },
+
     // `# renovate:` コメント追跡の docker 依存 (1password/op 等) は digest を書く場所がなく、
     // docker:pinDigests が毎回 update-failure になるため digest pin だけ外す。
     // 経緯: docs/decisions/regex custom manager の docker 依存は digest pin しない.md
