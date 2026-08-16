@@ -18,8 +18,8 @@ importers:
         specifier: 2.1.0
         version: 2.1.0(supports-color@7.2.0)
       '@nozomiishii/postinstall':
-        specifier: 2.1.0
-        version: 2.1.0
+        specifier: 2.2.0
+        version: 2.2.0
       '@nozomiishii/prettier-config':
         specifier: 2.1.0
         version: 2.1.0(prettier@3.9.6)
@@ -297,8 +297,8 @@ packages:
     resolution: {integrity: sha512-SALEPAp8c06/HwSpgLHnZdAuuK4EFmCv4zOIm04fAL7s5hh2mFBkFVcrosBwnGEP984iBsnfLW4DxWOMiVsL0w==}
     hasBin: true
 
-  '@nozomiishii/postinstall@2.1.0':
-    resolution: {integrity: sha512-muqzqaorJbRHR1jx2bP/NPYByRXpGlx06t4y9VjllYgaaBVZw6jWV9wXfIwOln3e6EiTul5LlPjdr41fAP5ktA==}
+  '@nozomiishii/postinstall@2.2.0':
+    resolution: {integrity: sha512-Yb1jC8Hk2ZqmRSQI/+lLJGrAfbIWE168QbiKOs33itM9Ahbg0j7oU+jPc6F7bkc7HTvSmDjISbtze1s9uy62Mg==}
     hasBin: true
 
   '@nozomiishii/prettier-config@2.1.0':
@@ -3250,7 +3250,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@nozomiishii/postinstall@2.1.0':
+  '@nozomiishii/postinstall@2.2.0':
     dependencies:
       figlet: 1.11.4
       zx: 8.8.5
