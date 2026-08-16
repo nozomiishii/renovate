@@ -40,13 +40,13 @@
   "engines": {
     "node": "24.19.0"
   },
-  "publishConfig": {
-    "access": "public"
-  },
   "devEngines": {
     "packageManager": {
       "name": "pnpm",
       "onFail": "error"
     }
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
