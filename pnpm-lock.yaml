@@ -27,8 +27,8 @@ importers:
         specifier: 2.1.10
         version: 2.1.10
       renovate:
-        specifier: 44.26.0
-        version: 44.26.0(supports-color@7.2.0)(typanion@3.14.0)
+        specifier: 44.27.0
+        version: 44.27.0(supports-color@7.2.0)(typanion@3.14.0)
 
 packages:
 
@@ -2245,6 +2245,9 @@ packages:
     resolution: {integrity: sha512-3O/iVVsJAPsOnpwWIeD+d6z/7PmqApyQePUtCndjatj/9I5LylHvt5qluFaBT3I5h3r1ejfR056c+FCv+NnNXg==}
     engines: {node: 18 || 20 || >=22}
 
+  pend@1.2.0:
+    resolution: {integrity: sha512-F3asv42UuXchdzt+xXqfW1OGlVBe+mxa2mqI0pg5yAHZPvFmY3Y6drSf/GQ1A86WgWEN9Kzh/WrgKa6iGcHXLg==}
+
   picocolors@1.1.1:
     resolution: {integrity: sha512-xceH2snhtb5M9liqDsmEw56le376mTZkEX/jEb/RxNFyegNul7eNslCXP9FDj/Lcu0X8KEyMceP2ntpaHrDEVA==}
 
@@ -2330,8 +2333,8 @@ packages:
   remark@15.0.1:
     resolution: {integrity: sha512-Eht5w30ruCXgFmxVUSlNWQ9iiimq07URKeFS3hNc8cUWy1llX4KDWfyEDZRycMc+znsN9Ux5/tJ/BFdgdOwA3A==}
 
-  renovate@44.26.0:
-    resolution: {integrity: sha512-9XNNlk/UOiIUyg9pc97ovMHy9csiOG66RxCWJrx9pSAnBfAbTsCubB08LL+jo5CsuA1FhyW/5QimxL1QaJF58w==}
+  renovate@44.27.0:
+    resolution: {integrity: sha512-sFrhIkoB7z/7cBW1NCweCQD8VnB36GEhhQHaDf/3B8Xry7jcp2KLjg6Ic/sOrHQ0KXCddfUAmkBigA8G45Ru1w==}
     engines: {node: ^24.11.0, pnpm: ^11.0.0}
     hasBin: true
 
@@ -2756,6 +2759,10 @@ packages:
   yargs@18.1.0:
     resolution: {integrity: sha512-2rAgRKu54VsHkqI0/tYkmluGXHD4KW7yZoycuqDQ15QOTnc2VVfy0nN/1eMhnQLO00A+dwtK20xuCnc1YGeUyg==}
     engines: {node: ^20.19.0 || ^22.12.0 || >=23}
+
+  yauzl@3.4.0:
+    resolution: {integrity: sha512-jIH9yLR9wqr0wOS0TpBvo/g/2UgZH5qePVbjgRliiF0BYvOZyaBknKsF+x9Iht0O6sqgnB93rCICdOZFecJuDw==}
+    engines: {node: '>=12'}
 
   yocto-queue@1.2.2:
     resolution: {integrity: sha512-4LCcse/U2MHZ63HAJVE+v71o7yOdIe4cZ70Wpf8D/IyjDKYQLV5GD46B+hSTjJsvV5PztjvHoU580EftxjDZFQ==}
@@ -5373,6 +5380,8 @@ snapshots:
       lru-cache: 11.5.2
       minipass: 7.1.3
 
+  pend@1.2.0: {}
+
   picocolors@1.1.1: {}
 
   picomatch@2.3.2: {}
@@ -5472,7 +5481,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  renovate@44.26.0(supports-color@7.2.0)(typanion@3.14.0):
+  renovate@44.27.0(supports-color@7.2.0)(typanion@3.14.0):
     dependencies:
       '@aws-sdk/client-codecommit': 3.1095.0
       '@aws-sdk/client-ec2': 3.1095.0
@@ -5591,6 +5600,7 @@ snapshots:
       validate-npm-package-name: 7.0.2
       xmldoc: 2.0.3
       yaml: 2.9.0
+      yauzl: 3.4.0
       zod: 4.4.3
     optionalDependencies:
       openpgp: 6.3.1
@@ -6033,6 +6043,10 @@ snapshots:
       string-width: 8.2.2
       y18n: 5.0.8
       yargs-parser: 22.0.0
+
+  yauzl@3.4.0:
+    dependencies:
+      pend: 1.2.0
 
   yocto-queue@1.2.2: {}
 
