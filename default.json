@@ -200,8 +200,8 @@
         "# renovate: datasource=(?<datasource>[a-zA-Z0-9-._]+?) depName=(?<depName>[^\\s]+?)(?: versioning=(?<versioning>[^\\s]+?))?\\s+[A-Za-z0-9_-]*[Vv][Ee][Rr][Ss][Ii][Oo][Nn]:\\s*[\"']?(?<currentValue>[^\"'\\s]+)"
       ]
     },
-    // devEngines.runtime のバージョンを追従。
-    // npm manager のネイティブ対応が来たら撤去:
+    // devEngines のバージョンを追従。
+    // npm manager のネイティブ対応 (runtime / packageManager 一括) が来たら以下 3 件まとめて撤去:
     // https://github.com/renovatebot/renovate/pull/43369
     // https://github.com/renovatebot/renovate/issues/38067
     {
@@ -220,6 +220,17 @@
       "managerFilePatterns": ["/package.json/"],
       "matchStrings": [
         "$exists(devEngines.runtime) and devEngines.runtime.name = 'bun' ? [{\"depName\": \"bun\", \"currentValue\": devEngines.runtime.version, \"datasource\": \"github-releases\", \"packageName\": \"oven-sh/bun\", \"extractVersion\": \"^bun-v(?<version>.+)$\"}] : []"
+      ]
+    },
+    // packageManager フィールドと食い違うと devEngines 側が勝つため、
+    // 追従しないと pnpm が古い版に固定される。
+    {
+      "description": "Track devEngines.packageManager pnpm version in package.json.",
+      "customType": "jsonata",
+      "fileFormat": "json",
+      "managerFilePatterns": ["/package.json/"],
+      "matchStrings": [
+        "$exists(devEngines.packageManager[name = 'pnpm'].version) ? [{\"depName\": \"pnpm\", \"currentValue\": devEngines.packageManager[name = 'pnpm'].version, \"datasource\": \"npm\"}] : []"
       ]
     },
     // lefthook.yaml の `bunx <pkg>@<version>` を追従。
