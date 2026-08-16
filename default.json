@@ -204,22 +204,23 @@
     // npm manager のネイティブ対応 (runtime / packageManager 一括) が来たら以下 3 件まとめて撤去:
     // https://github.com/renovatebot/renovate/pull/43369
     // https://github.com/renovatebot/renovate/issues/38067
+    // devEngines は配列形式も取れるため、name は filter (`[name = 'node']`) で選ぶ。
     {
       "description": "Track devEngines.runtime Node.js version in package.json.",
       "customType": "jsonata",
       "fileFormat": "json",
-      "managerFilePatterns": ["/package.json/"],
+      "managerFilePatterns": ["/(^|/)package\\.json$/"],
       "matchStrings": [
-        "$exists(devEngines.runtime) and devEngines.runtime.name = 'node' ? [{\"depName\": \"node\", \"currentValue\": devEngines.runtime.version, \"datasource\": \"node-version\", \"versioning\": \"node\"}] : []"
+        "$exists(devEngines.runtime[name = 'node'].version) ? [{\"depName\": \"node\", \"currentValue\": devEngines.runtime[name = 'node'].version, \"datasource\": \"node-version\", \"versioning\": \"node\"}] : []"
       ]
     },
     {
       "description": "Track devEngines.runtime Bun version in package.json.",
       "customType": "jsonata",
       "fileFormat": "json",
-      "managerFilePatterns": ["/package.json/"],
+      "managerFilePatterns": ["/(^|/)package\\.json$/"],
       "matchStrings": [
-        "$exists(devEngines.runtime) and devEngines.runtime.name = 'bun' ? [{\"depName\": \"bun\", \"currentValue\": devEngines.runtime.version, \"datasource\": \"github-releases\", \"packageName\": \"oven-sh/bun\", \"extractVersion\": \"^bun-v(?<version>.+)$\"}] : []"
+        "$exists(devEngines.runtime[name = 'bun'].version) ? [{\"depName\": \"bun\", \"currentValue\": devEngines.runtime[name = 'bun'].version, \"datasource\": \"github-releases\", \"packageName\": \"oven-sh/bun\", \"extractVersion\": \"^bun-v(?<version>.+)$\"}] : []"
       ]
     },
     // packageManager フィールドと食い違うと devEngines 側が勝つため、
@@ -228,7 +229,7 @@
       "description": "Track devEngines.packageManager pnpm version in package.json.",
       "customType": "jsonata",
       "fileFormat": "json",
-      "managerFilePatterns": ["/package.json/"],
+      "managerFilePatterns": ["/(^|/)package\\.json$/"],
       "matchStrings": [
         "$exists(devEngines.packageManager[name = 'pnpm'].version) ? [{\"depName\": \"pnpm\", \"currentValue\": devEngines.packageManager[name = 'pnpm'].version, \"datasource\": \"npm\"}] : []"
       ]
