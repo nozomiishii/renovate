@@ -107,6 +107,7 @@
 
     // TypeScript 7 の Compiler API に typescript-eslint が対応するまで 6.x に固定する。
     // https://github.com/typescript-eslint/typescript-eslint/issues/10940
+    // https://github.com/nozomiishii/renovate/issues/815
     {
       "description": "Keep TypeScript on 6.x until typescript-eslint supports TypeScript 7",
       "matchPackageNames": ["typescript"],
