@@ -42,5 +42,11 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "onFail": "error"
+    }
   }
 }
