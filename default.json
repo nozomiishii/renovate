@@ -153,6 +153,23 @@
       "matchUpdateTypes": ["major"]
     },
 
+    // node と pnpm は mise.toml (mise manager) と devEngines (custom.jsonata) の 2 経路で追従される。
+    // branch 名が depName 由来なので指定なしでも 1 PR に収まるが、片方だけ更新されると
+    // devEngines.packageManager の version 指定で pnpm が起動時に落ちるため groupName で固定する。
+    // 非メジャーは末尾の all-minor-patch が吸収し、separateMultipleMajor で branch は目標 major ごとに分かれる。
+    {
+      "description": "Group node major updates across managers into a single PR",
+      "groupName": "node",
+      "matchPackageNames": ["node"],
+      "matchUpdateTypes": ["major"]
+    },
+    {
+      "description": "Group pnpm major updates across managers into a single PR",
+      "groupName": "pnpm",
+      "matchPackageNames": ["pnpm"],
+      "matchUpdateTypes": ["major"]
+    },
+
     // `# renovate:` コメント追跡の docker 依存 (1password/op 等) は digest を書く場所がなく、
     // docker:pinDigests が毎回 update-failure になるため digest pin だけ外す。
     // 経緯: docs/decisions/regex custom manager の docker 依存は digest pin しない.md
