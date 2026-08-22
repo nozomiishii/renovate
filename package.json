@@ -36,10 +36,6 @@
     "lefthook": "2.1.10",
     "renovate": "44.33.2"
   },
-  "packageManager": "pnpm@11.22.0",
-  "engines": {
-    "node": "24.19.0"
-  },
   "devEngines": {
     "runtime": {
       "name": "node",
@@ -48,6 +44,7 @@
     },
     "packageManager": {
       "name": "pnpm",
+      "version": "11.22.0",
       "onFail": "error"
     }
   },
