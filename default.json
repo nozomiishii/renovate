@@ -19,7 +19,6 @@
 
     // Dockerfile / Containerfile の `# renovate: ...` annotation 付き `ENV` / `ARG` の `_VERSION` 変数を追従。
     // 公式 preset (https://docs.renovatebot.com/presets-customManagers/#custommanagersdockerfileversions)。
-    // devcontainer 等の Dockerfile 内で版を固定するツール (mise 本体等) で使用。
     "customManagers:dockerfileVersions",
 
     // Makefile / GNUMakefile / *.mk の `# renovate: ...` annotation 付き `_VERSION` 変数を追従。
