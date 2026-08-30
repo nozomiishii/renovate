@@ -205,6 +205,21 @@
         "# renovate: datasource=(?<datasource>[a-zA-Z0-9-._]+?) depName=(?<depName>[^\\s]+?)(?: versioning=(?<versioning>[^\\s]+?))?\\s+[A-Za-z0-9_-]*[Vv][Ee][Rr][Ss][Ii][Oo][Nn]:\\s*[\"']?(?<currentValue>[^\"'\\s]+)"
       ]
     },
+    // load-secrets-action の `version` input を注釈なしで追従。
+    // 更新経路は mise の op と同じ Docker Hub 公式イメージのタグ (上の packageRules 参照)。
+    // `uses → with → version` の並びだけに一致するため、`# renovate:` 注釈が
+    // 挟まる旧形式や他 action の `version` には反応しない。
+    {
+      "description": "Track the load-secrets-action `version` input via the official Docker image, without a `# renovate:` comment.",
+      "customType": "regex",
+      "managerFilePatterns": ["/(^|/)\\.github/workflows/[^/]+\\.yaml$/"],
+      "matchStrings": [
+        "uses: 1password/load-secrets-action@\\S+[^\\n]*\\n\\s+with:\\n\\s+version: \"(?<currentValue>[^\"]+)\""
+      ],
+      "depNameTemplate": "1password/op",
+      "datasourceTemplate": "docker",
+      "versioningTemplate": "docker"
+    },
     // devEngines のバージョンを追従。
     // npm manager のネイティブ対応 (runtime / packageManager 一括) が来たら以下 3 件まとめて撤去:
     // https://github.com/renovatebot/renovate/pull/43369
