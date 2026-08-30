@@ -165,6 +165,19 @@
       "pinDigests": false
     },
 
+    // mise の op は aqua の 1password/cli に解決されるが、この aqua パッケージは type: http で
+    // GitHub に repo が無く、github-tags lookup が no-result になり更新できない。
+    // タグが stable リリースと完全一致する公式 Docker イメージ 1password/op を version oracle にする。
+    // versioning は rule 適用前に元 datasource (aqua) 基準で決まるため明示が必須。
+    {
+      "description": "Look up the mise op dep via the official Docker image: aqua 1password/cli is type: http with no GitHub repo",
+      "matchManagers": ["mise"],
+      "matchDepNames": ["op"],
+      "overrideDatasource": "docker",
+      "overridePackageName": "1password/op",
+      "versioning": "docker"
+    },
+
     // 自前 (nozomiishii/*) パッケージは top-level minimumReleaseAge が
     // 課す 3 日待ちを解除して即時取り込みする。
     // git-harvest / pm は scope なしで公開している自前パッケージなので明示列挙。
