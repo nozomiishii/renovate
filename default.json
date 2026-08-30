@@ -169,6 +169,7 @@
     // GitHub に repo が無く、github-tags lookup が no-result になり更新できない。
     // タグが stable リリースと完全一致する公式 Docker イメージ 1password/op を version oracle にする。
     // versioning は rule 適用前に元 datasource (aqua) 基準で決まるため明示が必須。
+    // 追跡: https://github.com/nozomiishii/renovate/issues/852
     {
       "description": "Look up the mise op dep via the official Docker image: aqua 1password/cli is type: http with no GitHub repo",
       "matchManagers": ["mise"],
