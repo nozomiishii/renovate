@@ -62,7 +62,19 @@ done
 
 ## Main
 
-All settings are consolidated in [default.json](./default.json). See the inline comments for the intent behind each option.
+Shared settings are consolidated in [default.json](./default.json). See the inline comments for the intent behind each option.
+
+## Presets
+
+### Cloudflare Workers
+
+Track `compatibility_date` in wrangler config files and group the Workers toolchain updates into a single PR. Add to the `extends` array in your renovate.json.
+
+```json
+"github>nozomiishii/renovate:cloudflare-workers"
+```
+
+Remove this entry once Renovate ships an official wrangler manager. See the inline comments in [cloudflare-workers.json](./cloudflare-workers.json) for details.
 
 ## tips
 
