@@ -62,7 +62,19 @@ done
 
 ## Main
 
-[default.json](./default.json) に全設定を集約。各設定の意図はインラインコメントを参照。
+共通設定は [default.json](./default.json) に集約。各設定の意図はインラインコメントを参照。
+
+## Presets
+
+### Cloudflare Workers
+
+wrangler 設定ファイルの `compatibility_date` を追従し、Workers toolchain の更新を 1 つの PR にまとめる。renovate.json の extends に足す。
+
+```json
+"github>nozomiishii/renovate:cloudflare-workers"
+```
+
+Renovate に公式の wrangler manager が出たらこの 1 行を削除する。詳細は [cloudflare-workers.json](./cloudflare-workers.json) のインラインコメントを参照。
 
 ## tips
 

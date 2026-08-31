@@ -25,7 +25,7 @@
     "format:fix": "pnpm prettier . --write",
     "postinstall": "postinstall",
     "prettier": "prettier --ignore-unknown --cache",
-    "validate": "renovate-config-validator --strict default.json"
+    "validate": "renovate-config-validator --strict default.json cloudflare-workers.json"
   },
   "devDependencies": {
     "@nozomiishii/commitlint-config": "2.3.1",

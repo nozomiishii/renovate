@@ -1,0 +1,63 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+
+  // Cloudflare Workers 用の opt-in preset。
+  // 経緯: docs/decisions/compatibility_date は wrangler 同梱の workerd の日付に追従する.md
+
+  "customDatasources": {
+    // wrangler の latest manifest の dependencies.workerd 1.<YYYYMMDD>.<patch> を
+    // YYYY-MM-DD 1 件だけの releases に変換する。形式不一致・欠落時は releases: [] になり PR は出ない。
+    // https://docs.renovatebot.com/modules/datasource/custom/
+    "cloudflare-compatibility-date": {
+      "defaultRegistryUrlTemplate": "https://registry.npmjs.org/wrangler/latest",
+      "format": "json",
+      "transformTemplates": [
+        "{ \"releases\": [dependencies.workerd[$match(/^1\\.[0-9]{8}\\.[0-9]+$/)].{ \"version\": $substring($, 2, 4) & \"-\" & $substring($, 6, 2) & \"-\" & $substring($, 8, 2) }], \"sourceUrl\": \"https://github.com/cloudflare/workerd\", \"changelogUrl\": \"https://developers.cloudflare.com/workers/configuration/compatibility-flags/\" }"
+      ]
+    }
+  },
+
+  "customManagers": [
+    // 行頭アンカーでコメントアウトされた行と別キーへの誤マッチを防ぐ。
+    // TOML の引用符なし日付 (compatibility_date = 2024-09-25) は追従対象外。
+    // wrangler が生成するのは引用符付き文字列のみ。
+    {
+      "description": "Track compatibility_date in wrangler config files.",
+      "customType": "regex",
+      "managerFilePatterns": ["/(^|/)wrangler\\.(jsonc?|toml)$/"],
+      "matchStrings": [
+        "(?m)^\\s*\"compatibility_date\"\\s*:\\s*\"(?<currentValue>\\d{4}-\\d{2}-\\d{2})\"",
+        "(?m)^\\s*compatibility_date\\s*=\\s*[\"'](?<currentValue>\\d{4}-\\d{2}-\\d{2})[\"']"
+      ],
+      "depNameTemplate": "cloudflare-compatibility-date",
+      "datasourceTemplate": "custom.cloudflare-compatibility-date",
+      "versioningTemplate": "regex:^(?<major>\\d{4})-(?<minor>\\d{2})-(?<patch>\\d{2})$"
+    }
+  ],
+
+  "packageRules": [
+    // wrangler は同梱 workerd の日付までしか受け付けないため、toolchain と date を同一 PR にまとめて
+    // 片側だけ進む食い違いを防ぐ。
+    {
+      "description": "Group the Workers toolchain and compatibility_date into a single PR",
+      "groupName": "cloudflare-workers",
+      "matchPackageNames": [
+        "wrangler",
+        "workerd",
+        "miniflare",
+        "/^@cloudflare\\//",
+        "cloudflare/wrangler-action",
+        "cloudflare-compatibility-date"
+      ]
+    },
+
+    // この datasource は releaseTimestamp を返さないため、default.json の minimumReleaseAge 3 日が
+    // pending 永続として効いて PR が出なくなる (renovate 44.x は minimumReleaseAgeBehaviour=timestamp-required)。
+    // 提案されるのは wrangler が対応済みの date だけで待つ意味も無いので解除する。
+    {
+      "description": "Opt compatibility_date out of the minimumReleaseAge delay: the datasource has no release timestamps",
+      "matchDepNames": ["cloudflare-compatibility-date"],
+      "minimumReleaseAge": null
+    }
+  ]
+}
