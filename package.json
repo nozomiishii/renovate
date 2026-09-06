@@ -34,7 +34,7 @@
     "@nozomiishii/postinstall": "2.5.0",
     "@nozomiishii/prettier-config": "2.5.0",
     "lefthook": "2.1.12",
-    "renovate": "44.48.1"
+    "renovate": "44.61.3"
   },
   "devEngines": {
     "runtime": {
