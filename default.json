@@ -117,22 +117,11 @@
       "allowedVersions": "6.x"
     },
 
-    // Cloudflare の公開版が Vitest 5 に対応するまで、language は共有契約テストも 4 系に揃える。
+    // Cloudflare の公開版が Vitest 5 に対応するまで、両 repo の全 workspace を 4 系に揃える。
     // 解除条件・対象・手順: https://github.com/nozomiishii/dance/issues/168
     {
-      "description": "Keep language on Vitest 4 until Cloudflare publishes Vitest 5 support",
-      "matchRepositories": ["nozomiishii/language"],
-      "matchDatasources": ["npm"],
-      "matchPackageNames": ["vitest", "@vitest/**"],
-      "allowedVersions": "4.x",
-      "groupName": "vitest"
-    },
-    // dance の API 以外は Vitest 5 へ移行済みなので API だけを制限する。
-    // https://github.com/nozomiishii/dance/issues/168
-    {
-      "description": "Keep dance API on Vitest 4 until Cloudflare publishes Vitest 5 support",
-      "matchRepositories": ["nozomiishii/dance"],
-      "matchFileNames": ["apps/api/package.json"],
+      "description": "Keep language and dance on Vitest 4 until Cloudflare publishes Vitest 5 support",
+      "matchRepositories": ["nozomiishii/language", "nozomiishii/dance"],
       "matchDatasources": ["npm"],
       "matchPackageNames": ["vitest", "@vitest/**"],
       "allowedVersions": "4.x",
