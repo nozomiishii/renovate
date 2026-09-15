@@ -4,51 +4,52 @@
   "version": "0.0.0",
   "description": "🦄 Reborn Renovate",
   "keywords": [
-    "renovate",
-    "config"
+    "config",
+    "renovate"
   ],
   "homepage": "https://github.com/nozomiishii/renovate#readme",
   "bugs": {
     "url": "https://github.com/nozomiishii/renovate/issues"
   },
+  "license": "MIT",
+  "author": "Nozomi Ishii",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nozomiishii/renovate.git"
   },
-  "license": "MIT",
-  "author": "Nozomi Ishii",
+  "bin": "bin/cli.sh",
   "type": "module",
   "main": "default.json",
-  "bin": "bin/cli.sh",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
-    "format": "pnpm prettier . --check",
-    "format:fix": "pnpm prettier . --write",
+    "format": "pnpm oxfmt . --check",
+    "format:fix": "pnpm oxfmt .",
+    "oxfmt": "oxfmt",
     "postinstall": "postinstall",
-    "prettier": "prettier --ignore-unknown --cache",
     "validate": "renovate-config-validator --strict default.json"
   },
   "devDependencies": {
     "@nozomiishii/commitlint-config": "2.7.0",
     "@nozomiishii/lefthook-config": "2.7.0",
     "@nozomiishii/markdownlint-cli2-config": "2.7.0",
+    "@nozomiishii/oxfmt-config": "2.7.0",
     "@nozomiishii/postinstall": "2.7.0",
-    "@nozomiishii/prettier-config": "2.7.0",
     "lefthook": "2.1.12",
+    "oxfmt": "0.67.0",
     "renovate": "44.79.2"
   },
   "devEngines": {
-    "runtime": {
-      "name": "node",
-      "version": "24.21.0",
-      "onFail": "download"
-    },
     "packageManager": {
       "name": "pnpm",
       "version": "12.4.1",
       "onFail": "error"
+    },
+    "runtime": {
+      "name": "node",
+      "version": "24.21.0",
+      "onFail": "download"
     }
-  },
-  "publishConfig": {
-    "access": "public"
   }
 }
