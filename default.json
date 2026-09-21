@@ -127,6 +127,21 @@
       "groupName": "vitest"
     },
 
+    // @storybook/tanstack-react が router-core 1.171.30 以降で動く版を出すまで、その手前の組み合わせに留める。
+    // 解除条件・手順: https://github.com/nozomiishii/dev/issues/3173
+    {
+      "description": "Hold @tanstack/react-router below router-core 1.171.30 until Storybook supports it",
+      "matchDatasources": ["npm"],
+      "matchPackageNames": ["@tanstack/react-router"],
+      "allowedVersions": "<=1.170.35"
+    },
+    {
+      "description": "Hold @tanstack/react-start on the version paired with @tanstack/react-router 1.170.35",
+      "matchDatasources": ["npm"],
+      "matchPackageNames": ["@tanstack/react-start"],
+      "allowedVersions": "<=1.168.52"
+    },
+
     // download / upload は片側だけ上がると CI が壊れがちなので一緒に
     {
       "matchPackageNames": ["actions/download-artifact", "actions/upload-artifact"],
