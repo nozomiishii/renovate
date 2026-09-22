@@ -33,6 +33,11 @@
   // schedule の基準タイムゾーン (デフォルト UTC)
   "timezone": "Asia/Tokyo",
 
+  // 更新 PR の作成を週 1 回、月曜 5:00-9:59 JST に絞る。
+  // Mend Community の定期 job は 4 時間毎なので、窓を 4 時間より広く取る。
+  // https://docs.renovatebot.com/mend-hosted/job-scheduling/
+  "schedule": ["* 5-9 * * 1"],
+
   // 0 = 無制限。デフォルトの 10 並列 / 2 per hour 制限を外して一気に流す
   "prConcurrentLimit": 0,
   "prHourlyLimit": 0,
@@ -89,10 +94,10 @@
 
   "packageRules": [
     // renovate 本体の更新は頻度が高いので週 1 に絞る
-    {
-      "matchPackageNames": ["renovate"],
-      "schedule": ["before 9am on Monday"]
-    },
+    // {
+    //   "matchPackageNames": ["renovate"],
+    //   "schedule": ["* 0-8 * * 1"]
+    // },
 
     // 関連パッケージのグルーピング (個別 PR 乱立を防ぐ)
     {
@@ -204,15 +209,16 @@
       "versioning": "docker"
     },
 
-    // 自前 (nozomiishii/*) パッケージは top-level minimumReleaseAge が
-    // 課す 3 日待ちを解除して即時取り込みする。
+    // 自前 (nozomiishii/*) パッケージは top-level の minimumReleaseAge (3 日待ち) と
+    // schedule (週 1) を解除して即時取り込みする。
     // git-harvest / pm は scope なしで公開している自前パッケージなので明示列挙。
     // packageRules は後方のルールほど優先されるので必ず最後に配置
     // https://docs.renovatebot.com/configuration-options/#packagerules
     {
-      "description": "Opt nozomiishii self-managed packages out of the minimumReleaseAge delay",
+      "description": "Opt nozomiishii self-managed packages out of the minimumReleaseAge delay and the weekly schedule",
       "groupName": "nozomiishii",
       "minimumReleaseAge": null,
+      "schedule": ["at any time"],
       "matchPackageNames": ["/nozomiishii/", "git-harvest", "pm"]
     }
   ],
