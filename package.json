@@ -38,7 +38,7 @@
     "@nozomiishii/postinstall": "2.7.2",
     "lefthook": "2.1.14",
     "oxfmt": "0.70.0",
-    "renovate": "44.97.2"
+    "renovate": "44.114.0"
   },
   "devEngines": {
     "packageManager": {
