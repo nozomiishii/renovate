@@ -37,13 +37,13 @@
     "@nozomiishii/oxfmt-config": "2.7.2",
     "@nozomiishii/postinstall": "2.7.2",
     "lefthook": "2.1.14",
-    "oxfmt": "0.68.0",
+    "oxfmt": "0.70.0",
     "renovate": "44.97.2"
   },
   "devEngines": {
     "packageManager": {
       "name": "pnpm",
-      "version": "12.5.1",
+      "version": "12.6.0",
       "onFail": "download"
     },
     "runtime": {
