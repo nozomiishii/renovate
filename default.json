@@ -33,10 +33,11 @@
   // schedule の基準タイムゾーン (デフォルト UTC)
   "timezone": "Asia/Tokyo",
 
-  // 更新 PR の作成を週 1 回、月曜 5:00-9:59 JST に絞る。
+  // 更新 PR の作成を週 1 回、月曜未明に絞る。
   // Mend Community の定期 job は 4 時間毎なので、窓を 4 時間より広く取る。
   // https://docs.renovatebot.com/mend-hosted/job-scheduling/
-  "schedule": ["* 5-9 * * 1"],
+  // 窓を動かすときは brain の weekly-renovate-review routine の発火時刻も合わせる。
+  "schedule": ["* 1-5 * * 1"],
 
   // 0 = 無制限。デフォルトの 10 並列 / 2 per hour 制限を外して一気に流す
   "prConcurrentLimit": 0,
