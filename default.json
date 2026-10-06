@@ -33,10 +33,11 @@
   // schedule の基準タイムゾーン (デフォルト UTC)
   "timezone": "Asia/Tokyo",
 
-  // 更新 PR の作成を週 1 回、月曜 5:00-9:59 JST に絞る。
+  // 更新 PR の作成を週 1 回、月曜 3:00 以降に絞る。3:00 までは開発中で通知を受けたくない。
   // Mend Community の定期 job は 4 時間毎なので、窓を 4 時間より広く取る。
   // https://docs.renovatebot.com/mend-hosted/job-scheduling/
-  "schedule": ["* 5-9 * * 1"],
+  // 窓を動かすときは brain の weekly-renovate-review routine の発火時刻も合わせる。
+  "schedule": ["* 3-7 * * 1"],
 
   // 0 = 無制限。デフォルトの 10 並列 / 2 per hour 制限を外して一気に流す
   "prConcurrentLimit": 0,
@@ -67,7 +68,9 @@
 
   // lockFileMaintenance は minimumReleaseAge を enforce しないが、グローバル設定があると
   // `renovate/stability-days` が永遠 PENDING で post される。null override で抑止。
+  // config:best-practices 既定の窓 (月曜 0:00-3:59) は開発中に重なるため、上の schedule と揃える。
   "lockFileMaintenance": {
+    "schedule": ["* 3-7 * * 1"],
     "statusCheckNames": {
       "minimumReleaseAge": null
     }
