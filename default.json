@@ -125,16 +125,6 @@
       "allowedVersions": "6.x"
     },
 
-    // Vitest 5 への major 更新を全 repo で止め、4 系に揃える。
-    // Cloudflare 依存の解除条件・手順: https://github.com/nozomiishii/dance/issues/168
-    {
-      "description": "Keep Vitest on 4.x across all repositories until ready to adopt Vitest 5",
-      "matchDatasources": ["npm"],
-      "matchPackageNames": ["vitest", "@vitest/**"],
-      "allowedVersions": "4.x",
-      "groupName": "vitest"
-    },
-
     // download / upload は片側だけ上がると CI が壊れがちなので一緒に
     {
       "matchPackageNames": ["actions/download-artifact", "actions/upload-artifact"],
