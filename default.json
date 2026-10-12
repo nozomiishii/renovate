@@ -33,11 +33,12 @@
   // schedule の基準タイムゾーン (デフォルト UTC)
   "timezone": "Asia/Tokyo",
 
-  // 更新 PR の作成を週 1 回、月曜 3:00 以降に絞る。3:00 までは開発中で通知を受けたくない。
+  // 更新 PR の作成を週 1 回、月曜 0:00-4:59 に絞る。
   // Mend Community の定期 job は 4 時間毎なので、窓を 4 時間より広く取る。
   // https://docs.renovatebot.com/mend-hosted/job-scheduling/
-  // 窓を動かすときは brain の weekly-renovate-review routine の発火時刻も合わせる。
-  "schedule": ["* 3-7 * * 1"],
+  // 窓を動かすときは brain の weekly-renovate-review routine の発火時刻も見直す。
+  // 経緯: docs/decisions/Renovate の更新窓は月曜 0 時に開け lock file maintenance は火曜に分ける.md
+  "schedule": ["* 0-4 * * 1"],
 
   // 0 = 無制限。デフォルトの 10 並列 / 2 per hour 制限を外して一気に流す
   "prConcurrentLimit": 0,
@@ -68,9 +69,10 @@
 
   // lockFileMaintenance は minimumReleaseAge を enforce しないが、グローバル設定があると
   // `renovate/stability-days` が永遠 PENDING で post される。null override で抑止。
-  // config:best-practices 既定の窓 (月曜 0:00-3:59) は開発中に重なるため、上の schedule と揃える。
+  // 月曜の更新 PR が入った後の依存で lockfile を作り直すため、翌日の火曜 0:00-4:59 にずらす。
+  // 経緯: docs/decisions/Renovate の更新窓は月曜 0 時に開け lock file maintenance は火曜に分ける.md
   "lockFileMaintenance": {
-    "schedule": ["* 3-7 * * 1"],
+    "schedule": ["* 0-4 * * 2"],
     "statusCheckNames": {
       "minimumReleaseAge": null
     }
@@ -123,6 +125,20 @@
       "description": "Keep TypeScript on 6.x until typescript-eslint supports TypeScript 7",
       "matchPackageNames": ["typescript"],
       "allowedVersions": "6.x"
+    },
+
+    // drizzle は npm にブランチごとのプレビュー版 (1.0.0-rc.5-ab785fc など) を出す。
+    // semver ではハッシュ部分を文字列で比べるため、古いプレビュー版が最新に見える。
+    // 全 repo で 1.0 の rc を使う方針なので、npm の rc タグに追従させる。
+    // rc タグがあるのは orm / kit / seed だけで、zod などに付けると版が引けないため名前で絞る。
+    // 1.0.0 の GA 後は rc タグが更新されなくなるので、このルールを外す。
+    // https://github.com/nozomiishii/dev/issues/3310
+    {
+      "description": "Follow the drizzle rc dist-tag instead of per-branch preview builds",
+      "matchDatasources": ["npm"],
+      "matchPackageNames": ["drizzle-orm", "drizzle-kit", "drizzle-seed"],
+      "followTag": "rc",
+      "groupName": "drizzle"
     },
 
     // download / upload は片側だけ上がると CI が壊れがちなので一緒に
