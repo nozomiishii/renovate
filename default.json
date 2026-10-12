@@ -137,6 +137,20 @@
       "groupName": "vitest"
     },
 
+    // drizzle は npm にブランチごとのプレビュー版 (1.0.0-rc.5-ab785fc など) を出す。
+    // semver ではハッシュ部分を文字列で比べるため、古いプレビュー版が最新に見える。
+    // 全 repo で 1.0 の rc を使う方針なので、npm の rc タグに追従させる。
+    // rc タグがあるのは orm / kit / seed だけで、zod などに付けると版が引けないため名前で絞る。
+    // 1.0.0 の GA 後は rc タグが更新されなくなるので、このルールを外す。
+    // https://github.com/nozomiishii/dev/issues/3310
+    {
+      "description": "Follow the drizzle rc dist-tag instead of per-branch preview builds",
+      "matchDatasources": ["npm"],
+      "matchPackageNames": ["drizzle-orm", "drizzle-kit", "drizzle-seed"],
+      "followTag": "rc",
+      "groupName": "drizzle"
+    },
+
     // download / upload は片側だけ上がると CI が壊れがちなので一緒に
     {
       "matchPackageNames": ["actions/download-artifact", "actions/upload-artifact"],
