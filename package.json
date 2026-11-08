@@ -37,7 +37,7 @@
     "@nozomiishii/oxfmt-config": "2.8.1",
     "@nozomiishii/postinstall": "2.8.1",
     "lefthook": "2.2.2",
-    "oxfmt": "0.75.0",
+    "oxfmt": "0.76.0",
     "renovate": "44.198.0"
   },
   "devEngines": {
