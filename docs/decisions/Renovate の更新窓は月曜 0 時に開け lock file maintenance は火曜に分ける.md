@@ -1,9 +1,11 @@
 ---
-status: accepted
+status: superseded by [Renovate の更新窓を毎日 0 時にする](<Renovate の更新窓を毎日 0 時にする.md>)
 date: 2026-10-12
 ---
 
 # Renovate の更新窓は月曜 0 時に開け lock file maintenance は火曜に分ける
+
+> 週 1 まとめでは 1 回の更新量が多く変更を追い切れなかったため、更新窓を毎日に変更した。詳細は[後継の ADR](<Renovate の更新窓を毎日 0 時にする.md>)を参照する。
 
 ## 背景と課題
 
