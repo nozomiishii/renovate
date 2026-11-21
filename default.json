@@ -69,10 +69,10 @@
 
   // lockFileMaintenance は minimumReleaseAge を enforce しないが、グローバル設定があると
   // `renovate/stability-days` が永遠 PENDING で post される。null override で抑止。
-  // 週 1 回、火曜 0:00-4:59 に実行する。
+  // 週 1 回、月曜 0:00-4:59 に実行する。
   // 経緯: docs/decisions/Renovate の更新窓を毎日 0 時にする.md
   "lockFileMaintenance": {
-    "schedule": ["* 0-4 * * 2"],
+    "schedule": ["* 0-4 * * 1"],
     "statusCheckNames": {
       "minimumReleaseAge": null
     }

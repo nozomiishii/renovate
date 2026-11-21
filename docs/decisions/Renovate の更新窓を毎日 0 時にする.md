@@ -43,7 +43,7 @@ date: 2026-11-20
 ## 決定
 
 - `default.json` の `schedule` を `["* 0-4 * * *"]` (毎日 0:00-4:59 JST) に変更する
-- `lockFileMaintenance.schedule` は週 1 回の火曜 0:00-4:59 JST を維持する
+- `lockFileMaintenance.schedule` は週 1 回の月曜 0:00-4:59 JST にする
 - `automergeType` は既定の `"pr"` のまま維持する
 - 確認済みの自動マージ PR の通知は `nozomiishii/brain` 側の日次レビュー完了時に Done にする
 
