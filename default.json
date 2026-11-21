@@ -33,12 +33,12 @@
   // schedule の基準タイムゾーン (デフォルト UTC)
   "timezone": "Asia/Tokyo",
 
-  // 更新 PR の作成を週 1 回、月曜 0:00-4:59 に絞る。
+  // 更新 PR の作成を毎日 0:00-4:59 に絞る。
   // Mend Community の定期 job は 4 時間毎なので、窓を 4 時間より広く取る。
   // https://docs.renovatebot.com/mend-hosted/job-scheduling/
-  // 窓を動かすときは brain の weekly-renovate-review routine の発火時刻も見直す。
-  // 経緯: docs/decisions/Renovate の更新窓は月曜 0 時に開け lock file maintenance は火曜に分ける.md
-  "schedule": ["* 0-4 * * 1"],
+  // 窓を動かすときは brain の .agents/routines/daily-renovate-review.md を動かす日次自動実行の発火時刻も見直す。
+  // 経緯: docs/decisions/Renovate の更新窓を毎日 0 時にする.md
+  "schedule": ["* 0-4 * * *"],
 
   // 0 = 無制限。デフォルトの 10 並列 / 2 per hour 制限を外して一気に流す
   "prConcurrentLimit": 0,
@@ -69,10 +69,10 @@
 
   // lockFileMaintenance は minimumReleaseAge を enforce しないが、グローバル設定があると
   // `renovate/stability-days` が永遠 PENDING で post される。null override で抑止。
-  // 月曜の更新 PR が入った後の依存で lockfile を作り直すため、翌日の火曜 0:00-4:59 にずらす。
-  // 経緯: docs/decisions/Renovate の更新窓は月曜 0 時に開け lock file maintenance は火曜に分ける.md
+  // 週 1 回、月曜 0:00-4:59 に実行する。
+  // 経緯: docs/decisions/Renovate の更新窓を毎日 0 時にする.md
   "lockFileMaintenance": {
-    "schedule": ["* 0-4 * * 2"],
+    "schedule": ["* 0-4 * * 1"],
     "statusCheckNames": {
       "minimumReleaseAge": null
     }
@@ -204,12 +204,12 @@
     },
 
     // 自前 (nozomiishii/*) パッケージは top-level の minimumReleaseAge (3 日待ち) と
-    // schedule (週 1) を解除して即時取り込みする。
+    // schedule (毎日深夜窓) を解除して即時取り込みする。
     // git-harvest / pm は scope なしで公開している自前パッケージなので明示列挙。
     // packageRules は後方のルールほど優先されるので必ず最後に配置
     // https://docs.renovatebot.com/configuration-options/#packagerules
     {
-      "description": "Opt nozomiishii self-managed packages out of the minimumReleaseAge delay and the weekly schedule",
+      "description": "Opt nozomiishii self-managed packages out of the minimumReleaseAge delay and the daily schedule",
       "groupName": "nozomiishii",
       "minimumReleaseAge": null,
       "schedule": ["at any time"],
